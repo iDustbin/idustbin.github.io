@@ -1,0 +1,401 @@
+  /*
+************
+*************************
+
+    Template Name: Motu - Personal Portfolio HTML Template
+    Template URI: nhptheme.com
+    Description: Motu -  Personal HTML Template. Personal portfolio, Creative Agency, Agency Portfolio, freelancer, cv, resume website. You can use this beautiful HTML template.
+    Author: nhpTheme
+    Author URI: nhptheme.com
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+CSS INDEX
+===================
+
+01. common
+02. Header
+03. Breadcrumb
+04. Feature
+05. Brand
+06. Portfolio
+07. Skills
+08. Counter
+09. Cta
+10. Blog
+11. Testimonial
+12. Blog Details
+13. Contact
+14. Widget
+15. Footer
+
+******************************************************* 
+*************************************************************** */
+
+
+@use './variables' as *;
+@use './mixins' as *;
+@use './colors' as *;
+
+/*
+************
+*************************
+01. common
+******************************************************* 
+*************************************************************** */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&display=swap');
+
+
+ body {
+    font-family: $roboto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(-clr-body-text);
+    font-size: 15px;
+}
+
+.img,img {
+	max-width: 100%;
+	@include transition(.3s);
+}
+.f-left {
+	float: left
+}
+.f-right {
+	float: right
+}
+.fix {
+	overflow: hidden
+}
+a,
+.button {
+	@include transition(.3s);
+}
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+a:focus,
+a:hover
+{
+	color: inherit;
+	text-decoration: none;
+}
+a,
+button {
+	color: inherit;
+	outline: medium none;
+}
+button:focus,input:focus,input:focus,textarea,textarea:focus{outline: 0}
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $spacegrotesk;
+	color: var(--clr-body-heading);
+	margin-top: 0px;
+	font-weight: 700;
+	text-transform: normal;
+    margin-bottom: 15px;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+h1 {
+	font-size: 60px;
+}
+h2 {
+	font-size: 48px;
+}
+h3 {
+	font-size: 38px;
+}
+h4 {
+	font-size: 28px;
+}
+h5 {
+	font-size: 20px;
+}
+h6 {
+	font-size: 16px;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+li {
+	list-style: none
+}
+p {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.86;
+	color: var(--clr-body-text);
+	margin-bottom: 15px;
+}
+hr {
+	border-bottom: 1px solid var(--clr-common-black);
+	border-top: 0 none;
+	margin: 30px 0;
+	padding: 0;
+    opacity: 1;
+}
+label {
+	color: var(--clr-body-heading);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 400;
+}
+*::-moz-selection {
+	background-color: var(--clr-body-heading);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::-moz-selection {
+	background-color: var(--clr-body-heading);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::selection {
+	background-color: var(--clr-common-black);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+
+/* <<<<<<<    Input Placeholder   >>>>>>>>> */
+
+input {
+	@include placeholder {
+		color: var(--clr-common-black);
+		font-size: 14px;
+		opacity: 1;
+	}
+}
+
+/* <<<<<<<    Common Classes   >>>>>>>>> */
+
+.fix {
+    overflow:hidden
+}
+.clear{
+    clear: both;
+}
+
+.p-rel {
+    position: relative;
+}
+
+.p-abs {
+    position: absolute;
+}
+.p-static {
+    position: static !important;
+}
+.w_img {
+    & img {
+        width: 100%;
+    }
+}
+.soft_bg {
+    background-color: var(--clr-body-soft_bg);
+}
+
+/* <<<<<<<    Overlay   >>>>>>>>> */
+
+[data-overlay] {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+    }
+}
+
+[data-overlay="light"] {
+    &::before {
+        background-color: var(--clr-common-white);
+    }
+}
+[data-overlay="dark"] {
+    &::before {
+        background-color: var(--clr-common-black);
+    }
+}
+
+[data-overlay="soft"] {
+    &::before {
+        background-color: var(--clr-body-soft_bg);
+    }
+}
+
+[data-overlay="dark-soft"] {
+    &::before {
+        background-color: #16171b;
+    }
+}
+
+[data-opacity="1"] {
+    &::before {
+        opacity: 0.1;
+    }
+}
+[data-opacity="2"] {
+    &::before {
+        opacity: 0.2;
+    }
+}
+[data-opacity="3"] {
+    &::before {
+        opacity: 0.3;
+    }
+}
+[data-opacity="4"] {
+    &::before {
+        opacity: 0.4;
+    }
+}
+[data-opacity="5"] {
+    &::before {
+        opacity: 0.5;
+    }
+}
+[data-opacity="6"] {
+    &::before {
+        opacity: 0.6;
+    }
+}
+[data-opacity="7"] {
+    &::before {
+        opacity: 0.7;
+    }
+}
+[data-opacity="8"] {
+    &::before {
+        opacity: 0.8;
+    }
+}
+[data-opacity="9"] {
+    &::before {
+        opacity: 0.9;
+    }
+}
+
+
+
+
+/* <<<<<<<    Declaration   >>>>>>>>> */
+
+:root {
+    /**
+    @color declaration
+    */
+    @each $color, $shades in $colors {
+        @each $shade, $value in $shades {
+            --clr-#{$color}-#{"" + $shade}: #{$value};
+        }
+    }
+}
+
+
+/* <<<<<<<    Margin & Padding>>>>>>>>> */
+
+@for $i from 1 through 40 {
+    .mt-#{5 * $i}{margin-top: 5px * $i;}
+}
+
+@for $i from 1 through 40 {
+    .mb-#{5 * $i}{margin-bottom: 5px *$i;}
+}
+
+@for $i from 1 through 40 {
+    .ml-#{5 * $i}{margin-left: 5px * $i;}
+}
+
+@for $i from 1 through 40 {
+    .mr-#{5 * $i}{margin-right: 5px *$i;}
+}
+
+@for $i from 1 through 40 {
+    .pt-#{5 * $i}{padding-top: 5px *$i;}
+}
+
+@for $i from 1 through 40 {
+    .pb-#{5 * $i}{padding-bottom: 5px *$i;}
+}
+
+@for $i from 1 through 40 {
+    .pl-#{5 * $i}{padding-left: 5px *$i;}
+}
+
+@for $i from 1 through 40 {
+    .pr-#{5 * $i}{padding-right: 5px *$i;}
+}
+.radius-50 {
+    border-radius: 50%;
+}
+.mb-17 {
+    margin-bottom: 17px;
+}
+.mb-13 {
+    margin-bottom: 13px;
+}
+.read_more_btn {
+    font-size: 15px;
+    font-family: 'Space Grotesk';
+    color: #415674;
+    font-weight: bold;
+    line-height: 1.867;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    &::after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        @include transition(.3s);
+        height: 2px;
+        background-color: #415674;
+        content: "";
+    }
+    & i {
+        font-size: 15px;
+        font-weight: 500;
+        @include transition(.3s);
+        color: #415674;
+        margin-left: 7px;
+        display: inline-block;
+    }
+    &:hover {
+        color: var(--clr-theme-1);
+        & i {
+            color: var(--clr-theme-1);
+        }
+        &::after {
+            background-color: var(--clr-theme-1);
+        }
+    }
+}
+

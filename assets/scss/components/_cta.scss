@@ -1,0 +1,61 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+09. Cta
+******************************************************* 
+*************************************************************** */
+
+.mtm_55 {
+    margin-top: -55px;
+}
+.theme_clr {
+    color: #ff5041;
+}
+.theme_cta {
+    background-color: #ff5041;
+    padding: 30px 120px 0 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media #{$md} {
+        padding: 30px 40px 0 40px;
+    }
+    @media #{$xs} {
+        padding: 45px 25px 25px 25px;
+        flex-direction: column;
+    }
+    @media #{$sm} {
+        padding: 45px 25px 25px 25px;
+        flex-direction: column;
+    }
+}
+
+.cta_btn {
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 1;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Space Grotesk';
+    height: 50px;
+    line-height: 46px;
+    border: 2px solid #fff;
+    padding: 0 25px;
+    border-radius: 5px;
+    margin-left: 15px;
+    &:hover {
+        background-color: #fff3f2;
+        color: #ff5041;
+    }
+}
+
+.cta_text {
+    font-size: 35px;
+    color: #fff;
+    @media #{$xs} {
+        text-align: center;
+        font-size: 28px;
+    }
+}

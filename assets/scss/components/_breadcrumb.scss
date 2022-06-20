@@ -1,0 +1,84 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+03. Breadcrumb
+******************************************************* 
+*************************************************************** */
+
+.breadcrumb_area {
+    background-color: #f6f8fa;
+    background-size: cover;
+    background-position: top center;
+    &:is(.pt-180.pb-110){
+        @media #{$xxl,$xl,$lg} {
+            padding-top: 210px;
+            padding-bottom: 120px;
+        }         
+        @media #{$md} {
+            padding-top: 195px;
+            padding-bottom: 120px;
+        }        
+        @media #{$xs} {
+            padding-top: 155px;
+            padding-bottom: 90px;
+        }
+    }
+    &:is(.mb-130){
+        @media #{$xxl,$lg,$md} {
+            margin-bottom: 120px;
+        }
+    }  
+    &:is(.mb-130){
+        @media #{$xxl,$xl,$lg} {
+            margin-bottom: 120px;
+        }
+        @media #{$xs} {
+            margin-bottom: 90px;
+        }
+    }     
+    &:is(.breadcrumb-contact){
+        padding-bottom: 120px;
+    }    
+}
+.breadcrumb_title {
+    font-size: 65px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    @media #{$xs} {
+        font-size: 41px;
+        font-size: 35px;
+    }
+    @media #{$sm} {
+        font-size: 48px;
+    }
+}
+
+
+.trail {
+    &-item {
+        display: inline-block;
+        margin: 0 16px;
+        position: relative;
+        &:not(:first-child)::before {
+            content: "\f105";
+            font-size: 18px;
+            color: #121315;
+            position: absolute;
+            left: -21px;
+            font-family: 'Font awesome 5 pro';
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        & a, & span {
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            color: #121315;
+        }
+        & span {
+            color: var(--clr-theme-1);
+        }
+    }
+}
