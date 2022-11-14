@@ -1,914 +1,720 @@
-<!doctype html>
-<html class="no-js" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>iDustBin - HireMe</title>
-        <meta name="description" content="Motu Personal Portfolio">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/favicon-dark.png">
-        <!-- Place favicon.ico in the root directory -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iDustBin</title>
+    <!-- bootstrap stylesheet -->
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
+    <!-- font awesome -->
+    <meta charset="utf-8">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- custom stylesheets -->
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/main.res.css" />
 
-		<!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <link rel="stylesheet" href="assets/css/swipper.css">
-        <link rel="stylesheet" href="assets/css/odometer-theme-default.css">
-        <link rel="stylesheet" href="assets/css/main.css">
-    </head>
-    
-    <body>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap-reboot.css'><link rel="stylesheet" href="./style.css">
 
-        <!-- header_area_start -->
-        <header class="transparent_header header_area">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xxl-3 col-md-2 col-6">
-                        <div class="header_logo">
-                            <a href="index-2.html"><img src="assets/img/logo/logo-dark.png" alt="logo"></a>
-                        </div>
+
+  </head>
+  <body>
+    <!-- header main starts -->
+    <header class="header-main my-3">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container shadow-solid bg-white rounded-2 p-2 p-md-3">
+          <a class="navbar-brand me-1" href="#">
+            <img
+              src="./assets/rocket.png"
+              alt="rocket"
+              width="56"
+              height="56"
+              class="img-fluid"
+            />
+          </a>
+          <ul class="nav nav-tabs mx-auto" id="portfolioTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-capitalize active"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="home-tab-pane"
+                aria-selected="true"
+              >
+                home
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-capitalize"
+                id="portfolio-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#portfolio-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="portfolio-tab-pane"
+                aria-selected="false"
+              >
+                portfolio
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-capitalize"
+                id="work-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#work-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="work-tab-pane"
+                aria-selected="false"
+              >
+                work
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-capitalize"
+                id="contact-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#contact-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="contact-tab-pane"
+                aria-selected="false"
+              >
+                contact
+              </button>
+            </li>
+          </ul>
+
+          <ul class="header-socialmedia-icons">
+            <a href="https://www.linkedin.com/in/dustin-keinert-7a780a1a6/" class="header-socialmedia"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.xing.com/profile/Dustin_Keinert/cv" class="header-socialmedia"><i class="fa-brands fa-xing"></i></a>
+            <a href="https://medium.com/@idustbin" class="header-socialmedia"><i class="fa-brands fa-medium"></i></a>
+            <a href="https://github.com/idustbin" class="header-socialmedia"><i class="fa-brands fa-github-alt"></i></a>
+          </ul>
+
+        </div>
+      </nav>
+    </header>
+    <!-- header main ends -->
+
+    <!-- main sections starts -->
+    <main class="main-sections mb-5">
+      <div class="container">
+        <div
+          class="card card-body px-2 py-4 px-md-3 rounded-2 border-0 shadow-solid"
+        >
+          <div class="tab-content" id="portfolioTabContent">
+            <div
+              class="tab-pane home-tab-pane fade show active"
+              id="home-tab-pane"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+              tabindex="0"
+            >
+              <div class="text-center">
+                <img
+                  src="./assets/dustbin.png"
+                  alt="iDustBin"
+                  width="282"
+                  height="282"
+                  class="img-fluid profile-photo mb-4"
+                />
+                <h2 class="username fs-4 fw-bold">iBustBin</h2>
+                <p class="mb-4">Senior DevOps Engineer</p>
+                <a href="#" class="btn btn-dark px-4">Services</a>
+                
+                <ul class="social-media-list list-unstyled mx-auto mt-5">
+                  <li>
+                    <a href="#" class="social-media__link">
+                      <i class="fa-brands fa-github-alt"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="social-media__link">
+                      <i class="fa-brands fa-docker"></i>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="social-media__link">
+                      <div class="ansible-icon">
+                      <img src="./assets/ansible-icon.svg" alt="Ansible"
+                      width="74"
+                      height="74"
+                      >
                     </div>
-                    <div class="col-xxl-6 col-md-7 d-none d-lg-block">
-                        <div class="main_menu main_menu_dark">
-                            <nav id="mobile-menu" class="mobile_menu">
-                                <ul>
-                                    <li class="active"><a href="index-2.html">Home</a>
-                                        <ul class="sub_menu">
-                                            <li class="menu-item-has-children menu-first-item"><a href="index.html">Home Default</a></li>
-                                            
-                                            <li class="menu-item-has-children"><a href="index-2.html">Home Dark</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="feature.html">Features</a>
-                                        <ul class="sub_menu">
-                                            <li class="menu-item-has-children menu-first-item"><a href="feature.html">Features</a></li>
-                                            <li class="menu-item-has-children"><a href="feature-details.html">Single Feature</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a>
-                                        <ul class="sub_menu">
-                                            <li class="menu-item-has-children menu-first-item"><a href="portfolio.html">Portfolio</a></li>
-                                            <li class="menu-item-has-children"><a href="portfolio-details.html">Portfolio Details</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="sub_menu">
-                                            <li class="menu-item-has-children menu-first-item"><a href="blog.html">Blog</a></li>
-                                            <li class="menu-item-has-children"><a href="blog-details.html">Blog Details</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-10 col-6">
-                        <div class="header_right">
-                            <div class="header_button d-none d-md-block"><a href="contact.html" class="header_btn textwhite i_right">Let's Talk<i class="fal fa-long-arrow-right"></i></a></div>
-                            <div class="humberger_sign humberger_dark open-mobile-menu">
-                                <span class="bar1"></span>
-                                <span class="bar2"></span>
-                                <span class="bar3"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+                  </li>
+                  
+                  <li class="text-end">
+                    <a href="#" class="social-media__link">
+                      <i class="fa-brands fa-bootstrap"></i>
+                    </a>
+                  </li>
+                  <li class="text-end">
+                    <a href="#" class="social-media__link">
+                      <i class="fa-brands fa-python"></i>
+                    </a>
+                  </li>
+                </ul>
+                
+              </div>
             </div>
-        </header>
-        <!-- header_area_start -->
+            <div
+              class="tab-pane portfolio-tab-pane fade"
+              id="portfolio-tab-pane"
+              role="tabpanel"
+              aria-labelledby="portfolio-tab"
+              tabindex="0"
+            >
+              portfolio
+              <!-- partial:index.partial.html -->
+              <div class="">
+                <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-block btn-outline-dark accordion-toggle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Blog Posts 
+                      </button>  
+                    </h2>
+                  </div>
+                  
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body jsonContent">
+              <!--       <a href="#"><h5>How I Spent 6 Months Learning Python and Set Up an Instgram Bot.</h5></a>
+                    <p>Short Summary,Short Summary, Short Summary , Short Summary</p>
+                    <a href="#"><h5>How I Built a Portfolio using Free Code Camp and other free online learning tools.</h5></a>
+                    <p>Short Summary, Short Summary, Short Summary, Short Summary</p> -->
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+              </div>
+            </div>
 
-        <!-- Sidebar for Mobile -->
-        <div class="fix d-lg-none">
-            <div class="offset-sidebar-dark side-info">
-                <div class="offset-widget offset-logo mb-30 pb-20">
-                    <div class="row align-items-center">
-                        <div class="col-8"><a href="index-2.html" class="mobile_logo"><img src="assets/img/logo/logo-dark.png" alt="Logo"></a></div>
-                        <div class="col-4 text-end"><button class="side-info-close side-close-dark"><i class="fal fa-times"></i></button></div>
+
+                        <!-- partial -->
+              <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/js/jquery-1.8.3.min.js'></script>
+              <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+              <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.js'></script><script  src="./script.js"></script>
+  
+
+            <div
+              class="tab-pane work-tab-pane fade"
+              id="work-tab-pane"
+              role="tabpanel"
+              aria-labelledby="work-tab"
+              tabindex="0"
+            >
+              <h2 class="fw-bold fs-4 mb-4">Project summary</h2>
+              <div class="summary-timeline mx-auto">
+                <div class="project-item lime-green mb-4">
+                  <div class="card card-body border-0 shadow-solid-sm">
+                    <h6 class="project__title">RMGroup AG</h6>
+                    <ul class="project__util list-unstyled">
+                      <li class="project__util-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="text">Senior DevOps Engineer</span>
+                      </li>
+                      <li class="project__util-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="text">07/2019 - 06/2020</span>
+                      </li>
+                    </ul>
+                    <p class="project__text">
+                      Working alongside the designer team implementing the
+                      designs, also developing custom solutions to address team
+                      necessities.
+                    </p>
+                    <ul class="work-bullet-points">
+                      <li>TR157 Data Collec:on Script based on ASH & Ansible Role</li>
+                      <li>Automa:on of the backend deployment with Ansible and Kubernetes Support in the</li>
+                      <li>Automation of the backend deployment with Ansible and Kubernetes Support in the operation of convergent services</li>
+                      <li>Documentaton of all work</li>
+                      <li>Implementation of simple backlog items or backlog items with a main focus Esma:ng of backlog items and plan for the next itera:on as a team</li>
+                      <li>Implementa:on and execu:on of tests, setup, maintenance and support of automa:on frameworks</li>
+                      <li>Ansible Automa:on MPTCP Migra:on for 38.000 Customers</li>
+                      <li>Internet Bonding based on MPTCP ( LTE & Cooper Line )</li>
+                      <li>Migra:on ~10.000 Virtual Instances into new OpenStack Cluster</li>
+                      <li>Boosty/ Hybrid Access Migra:on</li>
+                      <li>Nokia 5G FMR Receiver, Firmware Integra:on</li>
+                      <li>Automated Proﬁle Deployment / Boosty</li>
+                      <li>Juniper BGP Rou:ng</li>
+                      <li>Wireline + Wireless Bonding</li>
+                      <li>Ansible automa:on for new Kubernetes Applica:on</li>
+                      <li>Automa:on Traﬃc Server + Kubernetes Applica:on Cluster</li>
+                      <li>Router/ Firmware Testcase Automa:on</li>
+                      <li>4G/5G Bonding</li>
+
+• Netmap Router Integra:on
+• HybridAccess Firmware Integra:on
+• Pv4 SubneSng
+• Working as ISP for an Internet Service Provider
+• Kubernetes Automa:on based on Ansible</li>
+                      <li>network redesign</li>
+                      <li>network redesign</li>
+                    </ul>
+                    <ul class="project__tech list-unstyled">
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-github-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-html5"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                      </li>
+                    </ul>
+                    <div class="text-center">
+                      <a href="#" class="btn btn-dark"
+                        >Download Work Experience</a
+                      >
                     </div>
+                  </div>
+                </div>
+                <div class="project-item align-right lime-green mb-4">
+                  <div class="card card-body border-0 shadow-solid-sm">
+                    <h6 class="project__title">IT-Security Specialist</h6>
+                    <ul class="project__util list-unstyled">
+                      <li class="project__util-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="text">ESPRIT Europe GmbH</span>
+                      </li>
+                      <li class="project__util-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="text">June 2016 - Present</span>
+                      </li>
+                    </ul>
+                    <p class="project__text">
+                      Working alongside the designer team implementing the
+                      designs, also developing custom solutions to address team
+                      necessities.
+                    </p>
+                    <ul class="work-bullet-points">
+                      <li>Security Consul:ng & Engineering</li>
+                      <li>Vulnerability Scanning, Result Analysis & Remedia:on</li>
+                      <li>Security Audits</li>
+                      <li>Automated Distribu:on & Security Upgrades/Updates</li>
+                      <li>Implementa:on NetIQ - MFA Authen:ca:on</li>
+                      <li>IAM MFA Auth, added Second Factor auth mechanism</li>
+                      <li>Implementa:on Spiderfoot, Cuukoo</li>
+                      <li>Implementa:on Thread Intelligence incl. Process Deﬁni:on & User Training</li>
+                      <li>Responsible for Vulnerabili:es & Exploits</li>
+                    </ul>
+                    <ul class="project__tech list-unstyled">
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-github-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-html5"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                      </li>
+                    </ul>
+                    <div class="text-center">
+                      <a href="#" class="btn btn-dark"
+                        >Download Work Experience</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="project-item align-right lime-green mb-4">
+                  <div class="card card-body border-0 shadow-solid-sm">
+                    <h6 class="project__title">IT Infrastructure & Technology Management</h6>
+                    <ul class="project__util list-unstyled">
+                      <li class="project__util-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="text">Esprit Europe GmbH</span>
+                      </li>
+                      <li class="project__util-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="text">June 2016 - Present</span>
+                      </li>
+                    </ul>
+                    <p class="project__text">
+                      Working alongside the designer team implementing the
+                      designs, also developing custom solutions to address team
+                      necessities.
+                    </p>
+                    <ul class="work-bullet-points">
+                      <li>Network Topology Redesign</li>
+                      <li>So8ware Landscape Analysis</li>
+                      <li>Implementa:on Privat EvE-NG Network & Applica:on Landscape Training</li>
+                      <li>Analysis of existent Network/ So8ware assets.</li>
+                      <li>IT Globalisa:on</li>
+                      <li>NOOS Database migra:on*</li>
+                      <li>IAM Replica$on to new Cloud Infrastructure</li>
+                      <li>Network Architecture</li>
+                      <li>Network Redesign</li>
+                      <li>MPLS to Azure Connec:vity</li>
+                      <li>Enterprise Architecture Support {{ Deﬁne listening Sockets }}</li>
+                      <li>Java Applica:on & Version Analysis</li>
+                      <li>IS-Analyses</li>
+                      <li>Architecture to EvE-NG Emula:on</li>
+                    </ul>
+                    <ul class="project__tech list-unstyled">
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-github-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-html5"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                      </li>
+                    </ul>
+                    <div class="text-center">
+                      <a href="#" class="btn btn-dark"
+                        >Download Work Experience</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="project-item align-right lime-green mb-4">
+                  <div class="card card-body border-0 shadow-solid-sm">
+                    <h6 class="project__title">IT DataCenter Specialist</h6>
+                    <ul class="project__util list-unstyled">
+                      <li class="project__util-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="text">Esprit Europe GmbH</span>
+                      </li>
+                      <li class="project__util-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="text">12/2017 - 06/2018</span>
+                      </li>
+                    </ul>
+                    <p class="project__text">
+                      Working alongside the designer team implementing the
+                      designs, also developing custom solutions to address team
+                      necessities.
+                    </p>
+                    <ul class="work-bullet-points">
+                      <li>{{ Ansible }} Automa$sa$on</li>
+                      <li>Security Consul:ng & Engineering</li>
+                      <li>Vulneralibity Scanning, Categorise & Remedia:on</li>
+                      <li>Implementa:on Outpost24 Security Appliance</li>
+                      <li>Cloud Security</li>
+                      <li>{{ Solaris }} to {{ Debian }} Linux Migra:on</li>
+                      <li>Disaster Recovery Setup Microso8 Azure</li>
+                      <li>{{ bshop.esprit.com }} Migra:on from Solaris to Debian</li>
+                      <li>bshop.esprit.com Disaster Recovery Setup</li>
+                      <li>Oracle Java</li>
+                      <li>Oracle LDAP Cloud Migra$on {{ IAM }}</li>
+                      <li>Apache Tomcat {{ JBOSS Alterna:ve }}</li>
+                      <li>Oracle 11g Database</li>
+                      <li>Oracle Tablespace Fulldump to New Oracle Azure DB & VM</li>
+                      <li>Applica:on Architecture Redesign</li>
+                      <li>Azure private Networking</li>
+                      <li>Veritas Netbackup to Azure Cloud Storage Blob<li>
+                      <li>Maintainance Oracle Infrastructure</li>
+                      <li>Solaris 10, Docker Migra:on - Apache/WebDav<li>
+                      <li>Apache 2.2 to Apache 2.4 Migra:on incl. SSL/TLS Update</li>
+                    </ul>
+                    <ul class="project__tech list-unstyled">
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-github-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-html5"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                      </li>
+                    </ul>
+                    <div class="text-center">
+                      <a href="#" class="btn btn-dark"
+                        >Download Work Experience</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="project-item bright-yellow mb-4">
+                  <div class="card card-body border-0 shadow-solid-sm">
+                    <h6 class="project__title">Junior Consultant - DevOps OpenShift</h6>
+                    <ul class="project__util list-unstyled">
+                      <li class="project__util-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="text">Seven Principles AG</span>
+                      </li>
+                      <li class="project__util-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="text">05/2017 – 12/2017</span>
+                      </li>
+                    </ul>
+                    <p class="project__text">
+                      Working alongside the designer team implementing the
+                      designs, also developing custom solutions to address team
+                      necessities.
+                    </p>
+                    <ul class="work-bullet-points">
+                      <li>Ansible Automa$sa$on</li>
+                      <li>Dockerized Services</li>
+                      <li>Vagrant</li>
+                      <li>OpenShi8 3.2 CaCert.crt HotFix</li>
+                      <li>Vodafone Project: NIS Analyse</li>
+                      <li>{{ NIS }} User & Mount Analyse</li>
+                      <li>Project Vodafone: LDAP Implementa:on</li>
+                      <li>Vodafone Projekt: Network Appliance - {{ rSyslog }}</li>
+                      <li>Vodafone Project: Predeﬁne {{ LDAP }} Applica:on</li>
+                      <li>Technical Consul:ng</li>
+                      <li>Oracle LightsOut</li>
+                      <li>Oracle SGD {{ Secure Global Desktop }}</li>
+                      <li>Time & Projectmanagement SAPbyDesign</li>
+                    </ul>
+                    <ul class="project__tech list-unstyled">
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-github-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-html5"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                      </li>
+                    </ul>
+                    <div class="text-center">
+                      <a href="#" class="btn btn-dark"
+                        >Download Work Experience</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="project-item align-right bright-yellow mb-4">
+                  <div class="card card-body border-0 shadow-solid-sm">
+                    <h6 class="project__title">Brainloop AG</h6>
+                    <ul class="project__util list-unstyled">
+                      <li class="project__util-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="text">Senior DevOps Developer</span>
+                      </li>
+                      <li class="project__util-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="text">June 2016 - Present</span>
+                      </li>
+                    </ul>
+                    <p class="project__text">
+                      Working alongside the designer team implementing the
+                      designs, also developing custom solutions to address team
+                      necessities.
+                    </p>
+                    <ul class="work-bullet-points">
+                      <li>network redesign</li>
+                      <li>network redesign</li>
+                      <li>network redesign</li>
+                    </ul>
+                    <ul class="project__tech list-unstyled">
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-github-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-html5"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                      </li>
+                    </ul>
+                    <div class="text-center">
+                      <a href="#" class="btn btn-dark"
+                        >Download Work Experience</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="project-item moderate-red mb-4">
+                  <div class="card card-body border-0 shadow-solid-sm">
+                    <h6 class="project__title">Brainloop AG</h6>
+                    <ul class="project__util list-unstyled">
+                      <li class="project__util-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="text">Senior DevOps Developer</span>
+                      </li>
+                      <li class="project__util-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="text">June 2016 - Present</span>
+                      </li>
+                    </ul>
+                    <p class="project__text">
+                      Working alongside the designer team implementing the
+                      designs, also developing custom solutions to address team
+                      necessities.
+                    </p>
+                    <ul class="work-bullet-points">
+                      <li>network redesign</li>
+                      <li>network redesign</li>
+                      <li>network redesign</li>
+                    </ul>
+                    <ul class="project__tech list-unstyled">
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-github-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-html5"></i>
+                      </li>
+                      <li class="project__tech-icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                      </li>
+                    </ul>
+                    <div class="text-center">
+                      <a href="#" class="btn btn-dark"
+                        >Download Work Experience</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <a href="#" class="btn btn-dark">Download Resume</a>
+              </div>
+            </div>
                     
+        <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
+        
+        <style>
+        #map {
+            width: 100%;
+            height: 300px;
+        }
+        </style>
+                
+        <div id="map"></div>
+        
+        <script>
+        mapkit.init({
+            authorizationCallback: function(done) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "/services/jwt");
+                xhr.addEventListener("load", function() {
+                    done(this.responseText);
+                });
+                xhr.send();
+            }
+        });
+        
+        var Cupertino = new mapkit.CoordinateRegion(
+            new mapkit.Coordinate(37.3316850890998, -122.030067374026),
+            new mapkit.CoordinateSpan(0.167647972, 0.354985255)
+        );
+        var map = new mapkit.Map("map");
+        map.region = Cupertino;
+        </script>
+
+            <div
+              class="tab-pane contact-tab-pane fade"
+              id="contact-tab-pane"
+              role="tabpanel"
+              aria-labelledby="contact-tab"
+              tabindex="0"
+            >
+              <br>
+              <h2 class="fw-bold fs-4 text-center mb-4">Contact me</h2>
+              <form>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa-solid fa-envelope"></i>
+                  </span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    aria-label="Email"
+                    aria-describedby="basic-addon1"
+                  />
                 </div>
-
-                <div class="mobile-menu mobile-menu-dark fix"></div>
-
-                <div class="contact-infos mt-50 mb-30">
-                    <div class="contact-list contact-list-side mobile_contact mb-30">
-                        <h4 class="text-white">Contact Info</h4>
-                        <span class="sidebar-address"><i class="fal fa-map-marker-alt"></i><span>Badenerstrasse 94, 8952 Schlieren</span> </span>
-
-                        <a href="tel:+41797646758"><i class="fal fa-phone"></i><span>+41797646758</span></a>
-                        <a href="mailto:admin@example.com" class="theme-3"><i class="far fa-envelope"></i><span><span>admin@example.com</span></span></a>   
-
-                    </div>
-
-                    <div class="footer_widget_dark">
-                        <div class="top_social footer_social offset_social mt-20 mb-30">
-                            <a href="#" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa-solid fa-user"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Name"
+                    aria-label="Name"
+                    aria-describedby="basic-addon1"
+                  />
                 </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">
+                    <i class="fa-solid fa-align-left"></i>
+                  </span>
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    placeholder="Message"
+                    aria-label="Message"
+                  ></textarea>
+                </div>
+                <div class="mb-5 text-end">
+                  <button type="submit" class="btn btn-dark px-4">Send</button>
+                </div>
+              </form>
 
+              <!-- Maps -->
+
+              
+              <div class="contact-text text-center mt-5">
+                <h6 class="fs-6 fw-bold mb-2">How to reach me:</h6>
+                <p class="mb-2">
+                  eMail:
+                  <a href="mailto:spam@idustbin.com">spam@idustbin.com</a>
+                </p>
+                <p class="mb-2">
+                  Phone:
+                  <a href="mailto:spam@idustbin.com">+41 79 764 6758</a>
+                </p>
+                <p class="mb-2 fw-semibold mb-4">
+                  <a href="tel:+41 79 764 6758">+41 79 764 6758</a>
+                </p>
+                <h6 class="fs-6 fw-bold mb-2">Address:</h6>
+                <p class="mb-2">Badenerstrasse 94</p>
+                <p class="mb-2">8952 Schlieren</p>
+              </div>
             </div>
+          </div>
         </div>
-
-        <!-- Sidebar for Laptop -->
-        <div class="fix d-none d-lg-block">
-            
-            <div class="offset-sidebar offset-sidebar-dark side-info">
-
-                <div class="offset-widget offset-logo mb-30 pb-20">
-                    <div class="row align-items-center">
-                        <div class="col-8"><a href="index-2.html"><img src="assets/img/logo/logo-dark.png" alt="Logo"></a></div>
-                        <div class="col-4 text-end"><button class="side-info-close side-close-dark"><i class="fal fa-times"></i></button></div>
-                    </div>
-                    
-                </div>
-
-                <div class="offset-widget mb-40">
-                    <div class="info-widget">
-                        <h4 class="offset-title mb-20 d-none">About Us</h4>
-                        <p class="mb-30">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete account of the system and expound the actual teachings of the great explore</p>
-                        <a href="#" class="c-btn btn-round-02 d-none">Contact Us</a>
-                    </div>
-                </div>
-
-                <div class="contact-infos mt-30 mb-30">
-                    <div class="contact-list contact-list-side mb-30">
-                        <h4 class="text-white">Contact Info</h4>
-                        <span class="sidebar-address"><i class="fal fa-map-marker-alt"></i><span>Badenerstrasse 94, 8952 Schlieren</span> </span>
-                        <a href="tel:+41797646758"><i class="fal fa-phone"></i><span>+41797646758</span></a>
-                        <a href="mailto:spam@idustbin.com" class="theme-3"><i class="far fa-envelope"></i><span><span>spam@idustbin.com</span></span></a>  
-
-                    </div>
-                    <div class="footer_widget_dark">
-                        <div class="top_social footer_social offset_social mt-20 mb-30">
-                            <a href="#" target="_blank" class="GitHub.com"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="offcanvas-overlay"></div>
-        <!-- slide-bar end -->
-
-
-        <!-- main_area_start -->
-        <main>
-            <!-- slider_area-start -->
-            <section class="slider_area fix">
-                <div class="swiper-container2 slider_active">
-                    <div class="swiper-wrapper2">
-                        <div class="swiper-slide2 slider_single_dark slider_height">
-                            <div class="shape_circle horizontal_move100px"><img src="assets/img/hero/shape_circle_dark.png" alt="shape"></div>
-                            <div class="shape_dots upward_movement200px d-none d-md-block"><img src="assets/img/hero/shape_dots_dark.png" alt="shape"></div>
-                            <div class="shape_leftmiddle middleshape_dark">
-                                <div class="width_visible d-inline-block"><img src="assets/img/hero/shape_leftmiddle_dark.png" alt="shape"></div>
-                            </div>
-                            <div class="shape_topright fix d-none d-lg-block">
-                                <div class="shape_topright_inner top_right_visible"><img src="assets/img/hero/shape_dark_topright.png" alt="shape"></div>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="slider_rel_dark slider_single_relative slider_height">
-
-                                            <div class="hero_woman">
-                                                <div class="hero_woman_inner_wrap horizontal_move50px">
-                                                    <div class="hero_woman_inner fix circle-shape-change"><img src="assets/img/hero/hero_woman.png" alt="hero_img"></div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="woman_illustration fix horizontal_move50px">
-                                                <div class="woman_illustration_inner scale-img-animation-right"><img src="assets/img/hero/illustration_woman_dark.png" alt="hero_png"></div>
-                                            </div>
-
-                                            <div class="slider_content p-rel pt-150p pt-md-0">
-                                                <h2 class="slider_title text-white">Hello <br>
-                                                    I’m Dustin</h2>
-                                                <p class="has_border_left text-white">Sed ut perspiciatis unde omnis iste natus error <br>
-                                                    sit voluptatem accusantium dolore</p>
-                                                <a href="portfolio.html" class="slider_btn i_right textwhite">See Projects<i class="fal fa-long-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- slider_area-end -->
-
-            <!-- feature_area-start -->
-            <div class="feature_area theme_bg_dark pt-120 pb-100">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xxl-12">
-                            <div class="section_title text-center mb-75">
-                                <h2 class="title_text text-white">We Provide Best Solutions <br> For Your Agency</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="feature_motu_section mb-90">
-                        <div class="feature_wrapper">
-                            <div class="single_feature text-center mb-40">
-                                <span class="feature_icon icon_green">
-                                    <i class="fal fa-gem fagem"></i> 
-                                </span>
-                                <h5 class="feature_title text-white"><a href="feature-details.html">Web Design</a></h5>
-                            </div>
-                            <div class="single_feature text-center mb-40">
-                                <span class="feature_icon icon_green"><i class="fal fa-laptop-code"></i></span>
-                                <h5 class="feature_title text-white"><a href="feature-details.html">Development</a></h5>
-                            </div>
-                            <div class="single_feature text-center mb-40">
-                                <span class="feature_icon icon_green"><i class="fal fa-layer-group"></i></span>
-                                <h5 class="feature_title text-white"><a href="feature-details.html">Product Design</a></h5>
-                            </div>
-                            <div class="single_feature text-center mb-40">
-                                <span class="feature_icon icon_green"><i class="fal fa-broadcast-tower"></i></span>
-                                <h5 class="feature_title text-white"><a href="feature-details.html">IT Consulting</a></h5>
-                            </div>
-                            <div class="single_feature text-center mb-40 single_last_child">
-                                <span class="feature_icon icon_green"><i class="fal fa-bullhorn"></i></span>
-                                <h5 class="feature_title text-white"><a href="feature-details.html">Marketing</a></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="person_feature_area">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-7 col-lg-5">
-                                <div class="person_image_wrapper p-rel mb-30">
-                                    <img src="assets/img/hero/feature_woman.png" alt="img" class="feature_woman">
-                                    <div class="person_image_wrap">
-                                        <div class="person_image_wrap_inner rotate_hr_image">
-                                            <img src="assets/img/hero/feature_illustration_dark.png" alt="img" class="feature_illustration">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xxl-5 col-lg-7">
-                                <div class="person_feature_content person_feature_dark pl-55 mb-30">
-                                    <div class="section_title mb-30">
-                                        <h2 class="title_text text-white">Let’s Something Know About Myself</h2>
-                                    </div>
-                                    <p>My path to self employment, a natural evolution. After 7 years mastering my craft, I was still an employee and I simply had reached a ceiling of how much money I could earn in my career.</p>
-                                    <ul class="feature_list oflw-hidden mt-25">
-                                        <li>Professional Services</li>
-                                        <li>Exclusive Support Team</li>
-                                        <li>Best Marketing Strategy</li>
-                                    </ul>
-                                    <div class="feature_button mt-50">
-                                        <a href="about.html" class="feature_btn icon_right i_right textwhite">Learn More <i class="fal fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- feature_area-end -->
-
-            <!-- portfolio_area-start -->
-            <div class="portfolio_area portfolio_theme_bg filter-wrapper p-rel pt-120">
-                <div class="container portfolio_dark">
-                    <div class="row">
-                        <div class="col-xxl-12">
-                            <div class="section_title mb-70">
-                                <h2 class="title_text text-white">Latest Project That <br> Recently Done</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio_wrapper p-rel">
-                        <div class="p_shape_dots  upward_movement200px d-none d-md-block"><img src="assets/img/hero/shape_dots_dark.png" alt="shape"></div>
-
-                        <div class="portfolio_nav filter-nav mb-45">
-                            <button class="active" data-filter="*">View All</button>
-                            <button data-filter=".design">Design</button>
-                            <button data-filter=".mockup">Development</button>
-                            <button data-filter=".branding">Branding</button>
-                            <button data-filter=".creative">Photocopy</button>
-                            <button data-filter=".design">Marketing</button>
-                        </div>
-                        <div class="portfolio_items portfolio_items_dark">
-                            <div class="row filter-grid">
-                                <div class="col-xxl-6 col-xl-6 graphic branding col-lg-6 col-md-6 mb-100 grid-item">
-                                    <div class="portfolio_item">
-                                        <div class="portfolio_item_inner">
-                                            <a class="popup-image" href="assets/img/portfolio/portfolio1.jpg">
-                                                <div class="item_img">
-                                                    <img src="assets/img/portfolio/portfolio1.jpg" alt="img">
-                                                    <i class="fal fa-plus"></i>
-                                                </div>
-                                            </a>
-                                            <a href="portfolio-details.html" class="item_text textwhite">Graphics <br>Design</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mb-100 grid-item mockup design">
-                                    <div class="portfolio_item">
-                                        <div class="portfolio_item_inner">
-                                            <a class="popup-image" href="assets/img/portfolio/portfolio2.jpg">
-                                                <div class="item_img">
-                                                    <img src="assets/img/portfolio/portfolio2.jpg" alt="img">
-                                                    <i class="fal fa-plus"></i>
-                                                </div>
-                                            </a>
-                                            <a href="portfolio-details.html" class="item_text textwhite">Mockup <br>& Branding</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mb-100 grid-item creative graphic">
-                                    <div class="portfolio_item">
-                                        <div class="portfolio_item_inner">
-                                            <a class="popup-image" href="assets/img/portfolio/portfolio3.jpg">
-                                                <div class="item_img">
-                                                    <img src="assets/img/portfolio/portfolio3.jpg" alt="img">
-                                                    <i class="fal fa-plus"></i>
-                                                </div>
-                                            </a>
-                                            <a href="portfolio-details.html" class="item_text textwhite">Creative <br>Shoes</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mb-100 grid-item branding design">
-                                    <div class="portfolio_item">
-                                        <div class="portfolio_item_inner">
-                                            <a class="popup-image" href="assets/img/portfolio/portfolio4.jpg">
-                                                <div class="item_img">
-                                                    <img src="assets/img/portfolio/portfolio4.jpg" alt="img">
-                                                    <i class="fal fa-plus"></i>
-                                                </div>
-                                            </a>
-                                            <a href="portfolio-details.html" class="item_text textwhite">Design <br>Branding</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- portfolio_area-end -->
-
-            <!-- skills_area-start -->
-            <div class="skills_area skills_dark_area pt-30">
-                <div class="container">
-                    <div class="skill_wrapper pb-100 border_bottom">
-                        <div class="row">
-                            <div class="col-xxl-6 col-lg-6">
-                                <div class="skill_info mb-30">
-                                    <div class="section_title mb-30">
-                                        <h2 class="title_text text-white">Creative &amp; Professional <br>Skills Experience</h2>
-                                    </div>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta</p>
-                                    <div class="skill_button mt-30">
-                                        <a href="portfolio.html" class="blog_btn i_right textwhite">Get Any Project <i class="fal fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xxl-6 col-lg-6">
-                                <div class="skill_item_wrapper mb-30">
-                                    <div class="skill_progress_single mb-50">
-                                        <span class="text-white">Design  & Branding</span>
-                                        <span class="progress_value text-white">79%</span>
-                                        <div class="progress skill_progress">
-                                            <div class="progress-bar wow slideInLeft theme-3" data-wow-duration="1s" data-wow-delay="0.5s" role="progressbar" data-width="79%" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill_progress_single mb-50">
-                                        <span class="text-white">Web Development</span>
-                                        <span class="progress_value text-white">95%</span>
-                                        <div class="progress skill_progress">
-                                            <div class="progress-bar wow slideInLeft theme-3" data-wow-duration="1s" data-wow-delay="0.6s" role="progressbar" data-width="95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill_progress_single mb-50">
-                                        <span class="text-white">Business Strategy</span>
-                                        <span class="progress_value text-white">73%</span>
-                                        <div class="progress skill_progress">
-                                            <div class="progress-bar wow slideInLeft theme-3" data-wow-duration="1s" data-wow-delay="0.7s" role="progressbar" data-width="73%" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill_progress_single">
-                                        <span class="text-white">Photography</span>
-                                        <span class="progress_value text-white">83%</span>
-                                        <div class="progress skill_progress">
-                                            <div class="progress-bar wow slideInLeft theme-3" data-wow-duration="1s" data-wow-delay="0.8s" role="progressbar" data-width="83%" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- skills_area-end -->
-
-            <!-- counter_area-start -->
-            <div class="counter_area counter_bg_dark pt-120 pb-70">
-                <div class="container">
-                    <div class="counter_wrapper">
-                        <div class="single_item single_counter_item order-1 order-lg-0 mb-30">
-                            <h2 class="counter_numb text-white"><span class="odometer" data-count="320">00</span><span>+</span></h2>
-                            <span class="counter_text counter_color">Project Done</span>
-                        </div>
-                        <div class="single_item single_counter_item order-2 order-lg-1 mb-30">
-                            <h2 class="counter_numb text-white"><span class="odometer" data-count="563">00</span><span>+</span></h2>
-                            <span class="counter_text counter_color">Saticfied Clients</span>
-                            <div class="rating">
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="single_item single_counter_item order-3 order-lg-2 mb-30">
-                            <h2 class="counter_numb text-white"><span class="odometer" data-count="896">00</span><span>+</span></h2>
-                            <span class="counter_text counter_color">Awards Winning</span>
-                            <div class="rating">
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="single_item single_counter_item counter_heading order-0 order-lg-3 mb-30">
-                            <div class="section_title mb-30">
-                                <h2 class="title_text counter_heading_text text-white">Great Achievment<br>In My Career</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- counter_area-end -->
-
-            <!-- testimonial-area-start -->
-            <div class="testimonial-area testimonial_dark_bg pt-120 pb-125 fix">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xxl-12">
-                            <div class="section_title text-center mb-80">
-                                <h2 class="title_text text-white">What Our Clients Say <br> About Myself</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tstimonial_wrapper_width pb-120 p-rel">
-                    <div class="testimonial_active">
-                        <div class="swiper-container p-static team-active-3">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide single_testimonial single_dark_bg">
-                                    <div class="testimonial_thumb">
-                                        <img src="assets/img/testimonial/feedback-client-01.jpg" alt="feedback-client">
-                                    </div>
-                                    <div class="testimonial_content">
-                                        <div class="author_details mb-20">
-                                            <h4 class="t_title">Michael Bullock</h4>
-                                            <span class="t_subtitle">Managing director</span>
-                                        </div>
-                                        <p>Wonderful packaging. Delivery was notably speedy. Item is of superior quality. Exceptionally speedy dispatch.
-                                        </p>
-                                        <div class="rating">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide single_testimonial single_dark_bg">
-                                    <div class="testimonial_thumb">
-                                        <img src="assets/img/testimonial/feedback-client-02.jpg" alt="feedback-client">
-                                    </div>
-                                    <div class="testimonial_content">
-                                        <div class="author_details mb-20">
-                                            <h4 class="t_title">Stephen Parker</h4>
-                                            <span class="t_subtitle">CEO & Founder</span>
-                                        </div>
-                                        <p>Super quality! Quick delivery. Ever so marvelous packaging. First-rate service. Thank you and Always going above!</p>
-                                        <div class="rating">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide single_testimonial single_dark_bg">
-                                    <div class="testimonial_thumb">
-                                        <img src="assets/img/testimonial/feedback-client-03.jpg" alt="feedback-client">
-                                    </div>
-                                    <div class="testimonial_content">
-                                        <div class="author_details mb-20">
-                                            <h4 class="t_title">Andrew Deer</h4>
-                                            <span class="t_subtitle">Technical Director</span>
-                                        </div>
-                                        <p>Quality of the wrapping was grand. Delivery was remarkably speedy. The item was superior & matchless. Thank!</p>
-                                        <div class="rating">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide single_testimonial single_dark_bg">
-                                    <div class="testimonial_thumb">
-                                        <img src="assets/img/testimonial/feedback-client-04.jpg" alt="feedback-client">
-                                    </div>
-                                    <div class="testimonial_content">
-                                        <div class="author_details mb-20">
-                                            <h4 class="t_title">Joshua Murray</h4>
-                                            <span class="t_subtitle">Web Developer</span>
-                                        </div>
-                                        <p>Exceptionally sterling delivery. The item was optimum and standout! Packaging was outstanding & quality work.</p>
-                                        <div class="rating">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide single_testimonial single_dark_bg">
-                                    <div class="testimonial_thumb">
-                                        <img src="assets/img/testimonial/feedback-client-05.jpg" alt="feedback-client">
-                                    </div>
-                                    <div class="testimonial_content">
-                                        <div class="author_details mb-20">
-                                            <h4 class="t_title">Arabella</h4>
-                                            <span class="t_subtitle">Creative Director</span>
-                                        </div>
-                                        <p>High-standard packaging. Item is of first-rate quality & Speedy! Definitely I will again use her into my upcoming task.</p>
-                                        <div class="rating">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide single_testimonial single_dark_bg">
-                                    <div class="testimonial_thumb">
-                                        <img src="assets/img/testimonial/feedback-client-06.jpg" alt="feedback-client">
-                                    </div>
-                                    <div class="testimonial_content">
-                                        <div class="author_details mb-20">
-                                            <h4 class="t_title">Matilda</h4>
-                                            <span class="t_subtitle">Photographer</span>
-                                        </div>
-                                        <p>Super quality! Quick delivery. Ever so marvelous packaging. First-rate service. Thank you and Always going above!</p>
-                                        <div class="rating">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="t_pagination t_pagination_dark">
-                                <div class="swiper-button-prev slide-prev"><i class="far fa-long-arrow-alt-left"></i></div>
-                                <div class="swiper-button-next slide-next"><i class="far fa-long-arrow-alt-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- testimonial area end -->
-
-            <!-- blog_area-start -->
-            <div class="blog_area blog_dark_bg pt-120">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xxl-12">
-                            <div class="section_title mb-75">
-                                <h2 class="title_text text-white">Every Single Update <br> News & Blog</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog_border pb-100">
-                        <div class="row">
-                            <div class="col-xl-4 col-md-6">
-                                <div class="single_blog mb-30">
-                                    <div class="blog_img w_img">
-                                        <a href="blog-details.html">
-                                            <img src="assets/img/blog/blog1.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="blog_content_wrapper_default">
-                                        <div class="blog_content">
-                                            <span class="blog_cat">Design</span>
-                                            <h4 class="blog_title text-white"><a href="blog-details.html">Designer focuses on creation & implementation </a></h4>
-                                            <div class="blog_meta blog_meta_dark">
-                                                <a href="#" class="meta_date"><i class="fal fa-calendar-alt"></i>25 March 2021</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_button blog_button_has_pos_default">
-                                            <a href="blog-details.html" class="blog_btn textwhite is_hide i_right">Read More <i class="fal fa-long-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="single_blog mb-30">
-                                    <div class="blog_img w_img">
-                                        <a href="blog-details.html">
-                                            <img src="assets/img/blog/blog2.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="blog_content_wrapper_default">
-                                        <div class="blog_content">
-                                            <span class="blog_cat">Development</span>
-                                            <h4 class="blog_title text-white"><a href="blog-details.html">Make a free website with our free website builder</a></h4>
-                                            <div class="blog_meta blog_meta_dark">
-                                                <a href="#" class="meta_date"><i class="fal fa-calendar-alt"></i>25 March 2021</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_button blog_button_has_pos_default">
-                                            <a href="blog-details.html" class="blog_btn textwhite is_hide i_right">Read More <i class="fal fa-long-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="single_blog mb-30">
-                                    <div class="blog_img w_img">
-                                        <a href="blog-details.html">
-                                            <img src="assets/img/blog/blog3.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="blog_content_wrapper_default">
-                                        <div class="blog_content">
-                                            <span class="blog_cat">Branding</span>
-                                            <h4 class="blog_title text-white"><a href="blog-details.html">Creating brand identity & establishes consistency</a></h4>
-                                            <div class="blog_meta blog_meta_dark">
-                                                <a href="#" class="meta_date"><i class="fal fa-calendar-alt"></i>25 March 2021</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_button blog_button_has_pos_default">
-                                            <a href="blog-details.html" class="blog_btn textwhite is_hide i_right">Read More <i class="fal fa-long-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- blog_area-end -->
-
-            <!-- brand_area-start -->
-            <div class="brand_area brand_dark_bg pt-135 pb-85">
-                <div class="container">
-                    <div class="brand_wrapper">
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand1.png" alt="brand-img">
-                        </div>
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand2.png" alt="brand-img">
-                        </div>
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand3.png" alt="brand-img">
-                        </div>
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand4.png" alt="brand-img">
-                        </div>
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand5.png" alt="brand-img">
-                        </div>
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand6.png" alt="brand-img">
-                        </div>
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand7.png" alt="brand-img">
-                        </div>
-                        <div class="single_brand mb-45">
-                                <img src="assets/img/brand/brand8.png" alt="brand-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- brand_area-end -->
-
-            <!-- contact_area-start -->
-            <div class="contact_area contact_area_dark pt-120 pb-100" data-overlay="dark-soft" data-opacity="9" data-background="assets/img/contact/contact_bg.jpg">
-                <div class="contact_content_wrapper p-rel">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xxl-12">
-                                <div class="section_title text-center mb-75 p-rel">
-                                    <h2 class="title_text text-white">Do You Have Any Project <br> Plz Say Hello </h2>
-                                    
-                                    <div class="c_shape_dots upward_movement200px d-none d-md-block"><img src="assets/img/hero/shape_dots_dark.png" alt="shape"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <form action="index.html" method="POST">
-                            <div class="row">
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="contact_single name_input mb-30">
-                                        <input type="text" placeholder="Your Full Name">
-                                        <i class="fal fa-user"></i>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="contact_single email_input mb-30">
-                                        <input type="email" placeholder="Email Address">
-                                        <i class="fal fa-envelope"></i>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="contact_single message_input mb-30">
-                                        <textarea name="message" id="message" cols="30" rows="1" placeholder="Write Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="submit_button mb-30">
-                                        <button class="submit_btn submit_dark_btn i_right w_100" type="submit">Send Message <i class="fal fa-long-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- contact_area-end -->
-            <!-- testimonial area start -->
-            
-        </main>
-        <!-- main_area_start -->
-
-        <!-- footer_area-start -->
-        <footer class="footer_area footer_area_dark">
-            <div class="footer_top_area pt-80 pb-50">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="footer_widget footer_widget_dark mb-30">
-                                <div class="footer_logo mb-40">
-                                    <a href="index-2.html"><img src="assets/img/logo/logo-dark.png" alt="footer-logo"></a>
-                                </div>
-                                <div class="footer_widget_info">
-                                    <span class="footer_info_line">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                        <span class="footer_info_text">256 Elizaberth Ave, Brooklyn, <br> CA, 90025</span>
-                                    </span>
-                                    <span class="footer_info_line">
-                                        <i class="fal fa-envelope-open-text"></i>
-                                        <a class="footer_info_text" href="mailto:supportconbiz@gmail.com">supportconbiz@gmail.com</a>
-                                    </span>
-                                    <span class="footer_info_line">
-                                        <i class="fal fa-phone"></i>
-                                        <a class="footer_info_text" href="tel:+012(345)67899">+012 (345) 678 99</a>
-                                    </span>
-                                </div>
-                                <div class="footer_social mt-30">
-                                    <a class="facebook" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="facebook" href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a class="facebook" href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                                    <a class="facebook" href="#" target="_blank"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="footer_widget footer_widget_dark fix mb-30 pl-20">
-                                <div class="footer_widget_title mb-35">
-                                    <h4 class="footer_title_text text-white pr-35">Services</h4>
-                                </div>
-                                <div class="footer_widget_content">
-                                    <ul class="footer_links">
-                                        <li><a href="feature-details.html">Web Design</a></li>
-                                        <li><a href="feature-details.html">Graphics Design</a></li>
-                                        <li><a href="feature-details.html">Web Development</a></li>
-                                        <li><a href="feature-details.html">Digital Marketing</a></li>
-                                        <li><a href="feature-details.html">IT Consulting</a></li>
-                                        <li><a href="feature-details.html">Co-Working</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="footer_widget footer_widget_dark mb-30">
-                                <div class="footer_widget_title mb-35">
-                                    <h4 class="footer_title_text text-white">Newsletters</h4>
-                                </div>
-                                <div class="footer_widget_content">
-                                    <p>Quis autem vel eum iure reprehenderit qui in 
-                                        ea voluptate velit esse molestiae</p>
-                                    <form action="#">
-                                        <div class="footer_subscription">
-                                            <input type="email" placeholder="Enter Your Email">
-                                            <button class="submit_btn i_right" type="submit">Send Message <i class="fal fa-long-arrow-right"></i></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="footer_widget footer_widget_dark mb-30">
-                                <div class="footer_widget_title mb-45">
-                                    <h4 class="footer_title_text text-white text-end pr-35">Photo Gallery</h4>
-                                </div>
-                                <div class="footer_widget_gallery text-end">
-
-                                    <a href="assets/img/gallery/thumb-big1.jpg" class="single_photo popup-image">
-                                        <img src="assets/img/testimonial/feedback-client-01.jpg" alt="thumb">
-                                        <i class="fal fa-plus"></i>
-                                    </a>
-                                    <a href="assets/img/gallery/thumb-big2.jpg" class="single_photo popup-image">
-                                        <img src="assets/img/testimonial/feedback-client-02.jpg" alt="thumb">
-                                        <i class="fal fa-plus"></i>
-                                    </a>
-                                    <a href="assets/img/gallery/thumb-big3.jpg" class="single_photo popup-image">
-                                        <img src="assets/img/testimonial/feedback-client-05.jpg" alt="thumb">
-                                        <i class="fal fa-plus"></i>
-                                    </a>
-                                    <a href="assets/img/gallery/thumb-big4.jpg" class="single_photo popup-image">
-                                        <img src="assets/img/testimonial/feedback-client-06.jpg" alt="thumb">
-                                        <i class="fal fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="footer_copyright_area">
-                <div class="container">
-                    <div class="copyright_border copyright_border_dark">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-5 col-lg-4 text-center text-lg-start order-1 order-lg-0">
-                                <p>&copy; 2021 Motu. All Rights Reserved. Design by <a href="index.html">nhpTheme</a></p>
-                            </div>
-                            <div class="col-xxl-7 col-lg-8 text-center text-lg-end order-0 order-lg-1">
-                                <nav>
-                                    <ul class="footer_menu footer_menu_dark">                     
-                                        <li class="active"><a href="about.html">Membership</a></li>
-                                        <li><a href="about.html">Purchase Guide</a></li>
-                                        <li><a href="about.html">Privacy Policy</a></li>
-                                        <li><a href="about.html">Terms of service</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-         <!-- footer_area-end -->
-
-        <!-- back to top start -->
-        <div class="progress-wrap progress-wrap-dark">
-            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-            </svg>
-        </div>
-        <!-- back to top end -->
-
-		<!-- JS here -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/isotope.pkgd.min.js"></script>
-        <script src="assets/js/slick.min.js"></script>
-        <script src="assets/js/swipper-bundle.min.js"></script>
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/jquery.scrollUp.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-        <script src="assets/js/mouse-wheel.min.js"></script>
-        <script src="assets/js/odometer.min.js"></script>
-        <script src="assets/js/appair.min.js"></script>
-        <script src="assets/js/back-to-top.min.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+      </div>
+    </main>
+    <!-- main sections ends -->
+    <!-- jQuery -->
+    <script src="./vendor/jQuery/jquery-3.6.1.min.js"></script>
+    <!-- bootstrap script -->
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- custom scripts -->
+    <script src="./scripts/main.js"></script>
+  </body>
 </html>
