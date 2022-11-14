@@ -1,0 +1,166 @@
+@media (max-width: 1199px) {
+  /*************************
+  => work tab pane
+  *************************/
+  .project-item {
+    padding: 0.75rem 2rem;
+  }
+  .project-item::before {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .project-item .card-body {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  /*************************
+  => header main
+  *************************/
+  .header-main .navbar-brand > * {
+    width: 3rem;
+  }
+
+  /*************************
+  => work tab pane
+  *************************/
+  .project-item {
+    padding: 0.5rem 1.5rem;
+  }
+  .project-item::before {
+    width: 3rem;
+    height: 3rem;
+  }
+  .project-item .card-body {
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  /*************************
+  => header main
+  *************************/
+  .header-main .navbar-brand > * {
+    width: 3rem;
+    font-size: 2.25rem;
+  }
+  .header-main .nav-tabs {
+    --bs-nav-link-padding-x: 0.75rem;
+    --bs-nav-link-padding-y: 0.375rem;
+  }
+  .header-main .nav-tabs .nav-link {
+    --bs-nav-link-font-size: 0.875rem;
+  }
+
+
+  /*************************
+  => home tab pane
+  *************************/
+  .home-tab-pane .social-media-list {
+    width: 460px;
+    gap: 0.875rem 0;
+  }
+  .home-tab-pane .signature {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+  .home-tab-pane .signature > * {
+    width: 2.5rem;
+  }
+
+  /*************************
+  => work tab pane
+  *************************/
+  .summary-timeline {
+    padding-block: 1rem;
+  }
+  .summary-timeline::before {
+    left: 1.5rem;
+  }
+  .project-item {
+    padding: 1rem 2rem 1rem 4rem;
+    width: 100%;
+  }
+  .project-item.align-right {
+    width: 100%;
+  }
+  .project-item::before,
+  .project-item.align-right::before {
+    left: 0;
+    right: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+  .project-item .card-body {
+    padding-inline: 1.5rem;
+  }
+  .project__text {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  /*************************
+  => header main
+  *************************/
+  .header-main .navbar-brand > * {
+    width: 2rem;
+    font-size: 1.5rem;
+  }
+  .header-main .nav-tabs {
+    --bs-nav-link-padding-x: 0.5rem;
+    --bs-nav-link-padding-y: 0.25rem;
+  }
+
+  /*************************
+  => home tab pane
+  *************************/
+  .home-tab-pane .social-media-list {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-tab-pane .social-media__link {
+    font-size: 2rem;
+  }
+  .ansible-icon{
+    font-size: 1rem;
+  }
+  .home-tab-pane .signature {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  .home-tab-pane .signature > * {
+    width: 2rem;
+  }
+
+  /*************************
+  => work tab pane
+  *************************/
+  .project-item {
+    padding: 1rem 1rem 1rem 2.5rem;
+  }
+  .summary-timeline::before {
+    left: 1.25rem;
+  }
+  .project-item::before {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-width: 0.1875rem;
+  }
+  .project-item .card-body {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 399px) {
+  /*************************
+  => header main
+  *************************/
+  .header-main .nav-tabs .nav-link {
+    --bs-nav-link-font-size: 0.8125rem;
+  }
+}
