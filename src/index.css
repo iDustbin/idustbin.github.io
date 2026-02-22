@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 7%;
+    --foreground: 160 10% 88%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 160 10% 88%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 160 10% 88%;
+
+    --primary: 160 100% 45%;
+    --primary-foreground: 220 20% 7%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 160 10% 88%;
+
+    --muted: 220 15% 13%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 185 80% 50%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 160 100% 45%;
+
+    --radius: 0.5rem;
+
+    --terminal-green: 160 100% 45%;
+    --terminal-cyan: 185 80% 50%;
+    --terminal-dim: 160 30% 25%;
+    --glow-green: 0 0% 0% / 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection {
+    background: hsl(160 100% 45% / 0.3);
+    color: hsl(160 10% 95%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(220 20% 7%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(220 15% 20%);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(160 100% 45% / 0.5);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(160 100% 45%), hsl(185 80% 50%));
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px hsl(160 100% 45% / 0.15), 0 0 60px hsl(160 100% 45% / 0.05);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(160 100% 45% / 0.4), 0 0 40px hsl(160 100% 45% / 0.1);
+  }
+
+  .border-glow {
+    border-color: hsl(160 100% 45% / 0.3);
+    box-shadow: 0 0 15px hsl(160 100% 45% / 0.05);
+  }
+
+  .terminal-bg {
+    background: linear-gradient(180deg, hsl(220 20% 8%) 0%, hsl(220 20% 5%) 100%);
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(220 15% 12%) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(220 15% 12%) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
