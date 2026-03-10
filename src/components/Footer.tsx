@@ -1,3 +1,5 @@
+import Impressum from "@/components/Impressum";
+
 const Footer = () => {
   return (
     <footer className="py-8 border-t border-border">
@@ -6,6 +8,13 @@ const Footer = () => {
           © {new Date().getFullYear()} iDustBin. Alle Rechte vorbehalten.
         </p>
         <div className="flex items-center gap-6">
+          <Impressum
+            trigger={
+              <span className="text-xs font-mono text-muted-foreground hover:text-primary transition-colors">
+                Impressum
+              </span>
+            }
+          />
           <a
             href="https://www.linkedin.com/in/idustbin/"
             target="_blank"

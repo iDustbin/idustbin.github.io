@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, Send } from "lucide-react";
 
 const contactInfo = [
   {
@@ -8,12 +8,6 @@ const contactInfo = [
     label: "E-Mail",
     value: "spam@idustbin.com",
     href: "mailto:spam@idustbin.com",
-  },
-  {
-    icon: Phone,
-    label: "Telefon",
-    value: "+41 79 764 6758",
-    href: "tel:+41797646758",
   },
   {
     icon: MapPin,

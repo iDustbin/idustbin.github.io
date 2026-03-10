@@ -33,7 +33,7 @@ const HeroSection = () => {
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-primary/30 glow-green">
               <img
                 src={avatarImg}
-                alt="Dustin Keinert - Senior DevOps Engineer"
+                alt="Dustin Keinert - Information Security Officer"
                 className="w-full h-full object-cover"
                 loading="eager"
               />
@@ -48,23 +48,16 @@ const HeroSection = () => {
             className="space-y-3"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-mono tracking-tight">
-              <span className="text-gradient glow-text">iDustBin</span>
+              <span className="text-gradient glow-text">iDustBin.com</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-mono">
-              Senior DevOps Engineer
+              Information Security Officer | CISM
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground/80 font-mono">
+              Information Security Officer & DevSecOps Engineer aus der Schweiz. Spezialisiert auf ISMS, ISO 27001, Ansible, Kubernetes und Cloud-Infrastruktur für Enterprise-Umgebungen.
             </p>
           </motion.div>
 
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="max-w-xl text-foreground/70 text-base md:text-lg leading-relaxed"
-          >
-            Automation-Experte aus der Schweiz. Spezialisiert auf Ansible, Kubernetes,
-            Cloud-Infrastruktur und DevOps-Engineering für Enterprise-Umgebungen.
-          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
@@ -94,7 +87,7 @@ const HeroSection = () => {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap items-center justify-center gap-2 mt-8"
           >
-            {["Ansible", "Kubernetes", "Docker", "AWS", "Azure", "Terraform", "Linux", "CI/CD"].map((tech) => (
+            {["ISMS", "ISO 27001", "CISM", "Ansible", "Kubernetes", "Docker", "CI/CD"].map((tech) => (
               <span
                 key={tech}
                 className="px-3 py-1 text-xs font-mono bg-secondary border border-border rounded-full text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"

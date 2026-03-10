@@ -2,66 +2,127 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    company: "RMGroup AG",
+    company: "AEW Energie AG",
+    role: "Information Security Officer",
+    period: "05/2025 – heute",
+    durationMonths: 10,
+    highlights: [
+      "Aufbau & Betrieb des ISMS nach ISO 27001",
+      "Erfolgreiche ISO 27001 Erstzertifizierung ohne Beanstandungen",
+      "Security Governance Framework & unternehmensweite Security Policies",
+      "Risikobewertungen & Compliance-Audits, Reporting an Geschäftsleitung",
+      "Azure AD, M365 & Endpoint Security Monitoring",
+    ],
+  },
+  {
+    company: "USZ (Spitalsektor)",
+    role: "System Engineer Linux & Kubernetes",
+    period: "07/2023 – heute",
+    durationMonths: 32,
+    highlights: [
+      "Hospital-grade Container-Infrastruktur mit 9+ Microservices",
+      "Automatisiertes Patching & Kubernetes/Namespace Provisioning mit Ansible",
+      "Penetration Testing & CVE-Validierung in K8s-Umgebungen",
+      "Python-Tooling für CSV Inventory Parsing",
+    ],
+  },
+  {
+    company: "Swisscom AG (Government)",
+    role: "Senior ICT Security Engineer",
+    period: "01/2023 – 06/2023",
+    durationMonths: 6,
+    highlights: [
+      "Cisco ACI Upgrades & Firewall-Änderungen via REST & Ansible",
+      "Infrastruktur-Reviews & Vulnerability Patching für Regierungsnetzwerke",
+      "Mail-Security (SMTP/IMAP) & Web-Firewall-Konfiguration",
+    ],
+  },
+  {
+    company: "Comdirect AG (Banking)",
     role: "Senior DevOps Engineer",
-    period: "07/2019 – 06/2020",
+    period: "09/2022 – 02/2023",
+    durationMonths: 6,
     highlights: [
-      "Ansible Automation für MPTCP-Migration von 38.000 Kunden",
-      "Migration ~10.000 virtueller Instanzen in neuen OpenStack Cluster",
-      "Nokia 5G FMR Receiver Firmware-Integration",
-      "Kubernetes-Automation & Traffic-Server-Cluster",
-      "4G/5G Bonding & Internet Bonding (LTE + Kupferleitung)",
+      "Migration 3+ Java-Applikationen zu Podman Containern",
+      "Static Code Analysis & Java Security Flaws Reporting",
+      "Sichere OpenShift Cluster & SSL-Zertifikate",
     ],
   },
   {
-    company: "ESPRIT Europe GmbH",
+    company: "RMGroup AG (ISP)",
+    role: "Senior DevOps Engineer",
+    period: "07/2020 – 10/2022",
+    durationMonths: 28,
+    highlights: [
+      "Ansible Automation für MPTCP-Migration von 38.000+ Kunden",
+      "OpenStack Cluster & hybrides 5G Bonding mit Nokia FMR",
+      "Kubernetes App Deployments & Backend Rollouts",
+    ],
+  },
+  {
+    company: "ESPRIT Holding Europe",
     role: "IT-Security Specialist",
-    period: "2016 – 2019",
+    period: "04/2019 – 10/2019",
+    durationMonths: 7,
     highlights: [
+      "Automatisierte Vulnerability Scanning & Remediation Pipelines",
       "Security Consulting & Engineering",
-      "Vulnerability Scanning, Analyse & Remediation",
-      "Implementierung NetIQ MFA-Authentifizierung",
-      "Threat Intelligence inkl. Prozessdefinition",
-      "NOOS-Datenbank-Migration & IAM Cloud-Replikation",
     ],
   },
   {
-    company: "ESPRIT Europe GmbH",
+    company: "ESPRIT Holding Europe",
+    role: "IT Infrastructure & Technology Management",
+    period: "06/2018 – 03/2019",
+    durationMonths: 10,
+    highlights: [
+      "Globale Netzwerk-Topologie & Software-Landschaft redesigned",
+      "NOOS & IAM Infrastruktur Cloud-Migration",
+      "MPLS-zu-Azure Konnektivität & Architektur-Richtlinien",
+    ],
+  },
+  {
+    company: "ESPRIT Holding Europe",
     role: "IT DataCenter Specialist",
     period: "12/2017 – 06/2018",
+    durationMonths: 7,
     highlights: [
       "Solaris zu Debian Linux Migration",
-      "Disaster Recovery Setup auf Microsoft Azure",
-      "Oracle 11g Database & Tablespace Migration",
-      "Apache 2.2 zu 2.4 Migration inkl. SSL/TLS Update",
-      "Veritas NetBackup zu Azure Cloud Storage",
+      "Disaster Recovery auf Azure für bshop.esprit.com",
+      "IAM-Migration von Oracle LDAP zu Azure",
     ],
   },
   {
     company: "Seven Principles AG",
     role: "Junior Consultant – DevOps OpenShift",
     period: "05/2017 – 12/2017",
+    durationMonths: 8,
     highlights: [
-      "Ansible Automatisierung & Dockerized Services",
-      "OpenShift 3.2 CaCert HotFix",
-      "Vodafone Projekt: LDAP-Implementierung",
-      "Oracle Secure Global Desktop",
-      "Projektmanagement mit SAP ByDesign",
+      "Deployment-Pipelines für OpenShift 3.2 automatisiert",
+      "LDAP/NIS Analyse für Vodafone Backend-Integration",
+      "Oracle Secure Global Desktop & Custom LDAP",
     ],
   },
   {
-    company: "Xsite GmbH",
+    company: "RedTecLab GmbH",
     role: "DevOps Engineer",
-    period: "2016 – 2017",
+    period: "02/2015 – 05/2017",
+    durationMonths: 28,
     highlights: [
-      "Infrastructure as Code mit Ansible",
-      "DDOS Protection mit Akamai Prolexic",
-      "Percona Database Cluster (InnoDB)",
-      "CI/CD mit Bitbucket & Jenkins",
-      "Applikations-Redesign (HAProxy – Apache – Tomcat – MySQL)",
+      "CI/CD Pipelines mit Jenkins & Bitbucket",
+      "DDoS Protection & CDN Hardening mit Akamai",
+      "DB & App Layer Optimierung, DNS Migration",
     ],
   },
 ];
+
+// Scale dot size: min 8px (short jobs) to 20px (longest job)
+const maxDuration = Math.max(...experiences.map(e => e.durationMonths));
+const minDuration = Math.min(...experiences.map(e => e.durationMonths));
+const getDotSize = (months: number) => {
+  if (maxDuration === minDuration) return 14;
+  const ratio = (months - minDuration) / (maxDuration - minDuration);
+  return 8 + ratio * 12; // 8px to 20px
+};
 
 const ExperienceSection = () => {
   return (
@@ -96,7 +157,14 @@ const ExperienceSection = () => {
                 className="relative pl-8 md:pl-20"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-8 top-2 w-2 h-2 -translate-x-[3.5px] rounded-full bg-primary glow-green" />
+                <div
+                  className="absolute left-0 md:left-8 top-2 rounded-full bg-primary glow-green"
+                  style={{
+                    width: getDotSize(exp.durationMonths),
+                    height: getDotSize(exp.durationMonths),
+                    transform: `translateX(-${getDotSize(exp.durationMonths) / 2}px)`,
+                  }}
+                />
 
                 <div className="p-6 bg-card border border-border rounded-lg hover:border-primary/20 transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">

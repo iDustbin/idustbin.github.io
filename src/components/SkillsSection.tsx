@@ -2,9 +2,14 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    title: "Infrastructure & Cloud",
-    icon: "☁️",
-    skills: ["AWS CloudFormation", "Microsoft Azure", "OpenStack", "Terraform", "Vagrant"],
+    title: "Information Security",
+    icon: "🛡️",
+    skills: ["ISO 27001 / ISMS", "CISM", "Risk Management", "Security Awareness", "Incident Response"],
+  },
+  {
+    title: "Operating Systems",
+    icon: "🖥️",
+    skills: ["Debian", "RedHat / CentOS", "Solaris", "Ubuntu", "Linux Administration"],
   },
   {
     title: "Automation & CI/CD",
@@ -25,11 +30,6 @@ const skillCategories = [
     title: "Databases & Storage",
     icon: "💾",
     skills: ["Oracle 11g", "MySQL / Percona", "LDAP", "Veritas NetBackup", "Azure Blob Storage"],
-  },
-  {
-    title: "Operating Systems",
-    icon: "🖥️",
-    skills: ["Debian", "RedHat / CentOS", "Solaris", "Ubuntu", "Linux Administration"],
   },
 ];
 

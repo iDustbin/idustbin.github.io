@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const links = [
   { label: "Skills", href: "#skills" },
-  { label: "Erfahrung", href: "#experience" },
   { label: "Portfolio", href: "/portfolio", isRoute: true },
   { label: "Blog", href: "#blog" },
   { label: "Zertifikate", href: "#certificates" },
@@ -18,7 +17,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="font-mono font-bold text-lg text-primary glow-text">
-          iDustBin<span className="animate-blink">_</span>
+          iDustBin<span className="text-primary">.com</span><span className="animate-blink">_</span>
         </a>
 
         {/* Desktop */}
