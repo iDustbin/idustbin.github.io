@@ -98,6 +98,10 @@ const CertificatesSection = () => {
                       src={cert.logo}
                       alt={cert.issuer}
                       className="w-8 h-8 object-contain"
+                      width={32}
+                      height={32}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="min-w-0">

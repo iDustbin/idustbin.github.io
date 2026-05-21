@@ -35,7 +35,11 @@ const HeroSection = () => {
                 src={avatarImg}
                 alt="Dustin Keinert - Information Security Officer"
                 className="w-full h-full object-cover"
+                width={160}
+                height={160}
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </motion.div>

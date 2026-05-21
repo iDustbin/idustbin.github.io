@@ -504,7 +504,7 @@ const Portfolio = () => {
                 >
                   <div className="w-12 h-12 rounded-md bg-white/90 border border-border flex items-center justify-center overflow-hidden flex-shrink-0">
                     {edu.logo ? (
-                      <img src={edu.logo} alt={edu.institution} className="w-10 h-10 object-contain" />
+                      <img src={edu.logo} alt={edu.institution} className="w-10 h-10 object-contain" width={40} height={40} loading="lazy" decoding="async" />
                     ) : (
                       <GraduationCap className="w-5 h-5 text-primary" />
                     )}
@@ -766,7 +766,7 @@ const Portfolio = () => {
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-md bg-white/90 border border-border flex items-center justify-center overflow-hidden">
                     {selectedEdu.logo ? (
-                      <img src={selectedEdu.logo} alt={selectedEdu.institution} className="w-8 h-8 object-contain" />
+                      <img src={selectedEdu.logo} alt={selectedEdu.institution} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" decoding="async" />
                     ) : (
                       <GraduationCap className="w-5 h-5 text-primary" />
                     )}
