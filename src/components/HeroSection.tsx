@@ -1,19 +1,25 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import avatarImg from "@/assets/dustbin.png";
 import TerminalAnimation from "./TerminalAnimation";
+
+const TECH_PILLS = [
+  "ISMS",
+  "ISO 27001",
+  "CISM",
+  "Risk Management",
+  "Security Governance",
+  "Cloud Security",
+];
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Grid background */}
       <div className="absolute inset-0 grid-pattern opacity-40" />
-      
-      {/* Radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
 
       <div className="relative z-10 container mx-auto px-6 py-20">
         <div className="flex flex-col items-center text-center gap-8">
-          {/* Terminal prompt */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -23,7 +29,6 @@ const HeroSection = () => {
             <span className="text-primary">$</span> whoami
           </motion.div>
 
-          {/* Avatar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -44,38 +49,35 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Name & Title */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="space-y-3"
+            className="space-y-3 max-w-3xl"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-mono tracking-tight">
               <span className="text-gradient glow-text">iDustBin.com</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-mono">
-              Information Security Officer | CISM
+              Information Security Officer (CISM) — auf dem Weg zum CISO
             </p>
-            <p className="text-sm md:text-base text-muted-foreground/80 font-mono">
-              Information Security Officer & DevSecOps Engineer aus der Schweiz. Spezialisiert auf ISMS, ISO 27001, Ansible, Kubernetes und Cloud-Infrastruktur für Enterprise-Umgebungen.
+            <p className="text-sm md:text-base text-muted-foreground/80 font-mono leading-relaxed">
+              Information Security Officer mit CISM-Zertifizierung und über 10 Jahren Erfahrung in regulierten Branchen — Healthcare, Finance, Telecom und Energiesektor. Schwerpunkte: Aufbau und Betrieb von ISMS nach ISO 27001, Security-Governance, Risikomanagement und Reporting auf Geschäftsleitungsebene.
             </p>
           </motion.div>
 
-
-          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap items-center gap-4 mt-4"
+            className="flex flex-wrap items-center justify-center gap-4 mt-4"
           >
-            <a
-              href="#experience"
+            <Link
+              to="/experience"
               className="px-6 py-3 bg-primary text-primary-foreground font-mono font-semibold text-sm rounded-md hover:bg-primary/90 transition-colors glow-green"
             >
               Erfahrung ansehen
-            </a>
+            </Link>
             <a
               href="#contact"
               className="px-6 py-3 border border-primary/30 text-primary font-mono font-semibold text-sm rounded-md hover:bg-primary/10 transition-colors"
@@ -84,14 +86,13 @@ const HeroSection = () => {
             </a>
           </motion.div>
 
-          {/* Tech stack pills */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="flex flex-wrap items-center justify-center gap-2 mt-8"
           >
-            {["ISMS", "ISO 27001", "CISM", "Ansible", "Kubernetes", "Docker", "CI/CD"].map((tech) => (
+            {TECH_PILLS.map((tech) => (
               <span
                 key={tech}
                 className="px-3 py-1 text-xs font-mono bg-secondary border border-border rounded-full text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
@@ -101,7 +102,6 @@ const HeroSection = () => {
             ))}
           </motion.div>
 
-          {/* Terminal Animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,7 +113,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

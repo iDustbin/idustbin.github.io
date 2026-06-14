@@ -257,10 +257,27 @@ const RecapLine = ({ text }: { text: string }) => {
 const TerminalAnimation = () => {
   const [visibleCount, setVisibleCount] = useState(0);
   const terminalRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [typingChar, setTypingChar] = useState(0);
+  const [isInView, setIsInView] = useState(true);
   const commandText = terminalLines[0].text;
 
+  // Pause the animation completely when out of viewport — otherwise the timer chain
+  // (50–120 ms) keeps rerendering 200+ DOM nodes and causes scroll jank.
   useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+
     // Phase 1: type the command
     if (typingChar < commandText.length) {
       const timeout = setTimeout(() => setTypingChar((c) => c + 1), 25 + Math.random() * 25);
@@ -281,7 +298,7 @@ const TerminalAnimation = () => {
       setTypingChar(0);
     }, 5000);
     return () => clearTimeout(timeout);
-  }, [typingChar, visibleCount, commandText.length]);
+  }, [typingChar, visibleCount, commandText.length, isInView]);
 
   useEffect(() => {
     if (terminalRef.current) {
@@ -290,7 +307,7 @@ const TerminalAnimation = () => {
   }, [visibleCount, typingChar]);
 
   return (
-    <div className="w-full">
+    <div ref={wrapperRef} className="w-full">
       <div className="rounded-lg overflow-hidden border border-[hsl(200,10%,25%)] glow-green">
         {/* Title bar */}
         <div className="flex items-center gap-2 px-4 py-2.5 bg-[hsl(200,10%,15%)] border-b border-[hsl(200,10%,25%)]">

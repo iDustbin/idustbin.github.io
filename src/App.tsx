@@ -9,6 +9,7 @@ import AccessibilityWidget from "./components/AccessibilityWidget";
 
 // Route-level code splitting: only the landing page ships in the initial bundle.
 const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Experience = lazy(() => import("./pages/Experience"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/experience" element={<Experience />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
