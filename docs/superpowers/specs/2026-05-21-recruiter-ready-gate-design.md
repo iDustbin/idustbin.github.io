@@ -1,28 +1,31 @@
-# Spec: Recruiter-tauglicher Auftritt mit Zugangsschutz
+# Spec: Recruiter-tauglicher Auftritt mit Anfrage-Modell
 
 **Datum:** 2026-05-21
-**Status:** Entwurf zur Freigabe
+**Status:** Entwurf zur Freigabe (Rev. 2 — Passwort-Gate verworfen)
 **Kontext:** `idustbin.github.io` — React 18 + Vite SPA, Deployment via GitHub Pages.
 
 ---
 
 ## 1. Ziel
 
-Den öffentlichen Webauftritt so überarbeiten, dass Dustin Keinert für **CISO / CTO / CIO**-Positionen
-in Frage kommt. Geändert werden **nur Inhalte, Wording und die Zugangslogik** — **kein Design-,
-Layout- oder Komponenten-Umbau**. Sensible Informationen dürfen nur mit ausdrücklichem Einverständnis
-herausgegeben werden.
+Den öffentlichen Webauftritt so überarbeiten, dass Dustin Keinert für **CISO-Positionen**
+in Frage kommt. Aktuelle Rolle: Information Security Officer mit CISM-Zertifizierung — der CISO
+ist die ehrliche und glaubwürdige nächste Stufe. Keine Verwässerung durch CTO/CIO-Framing.
 
-### Festgelegte Entscheidungen (aus der Abstimmung)
+Geändert werden **nur Inhalte, Wording und die Zugangslogik** — **kein Design-, Layout- oder
+Komponenten-Umbau**. Sensible Informationen liegen **gar nicht erst auf der Seite**: Recruiter
+stellen eine E-Mail-Anfrage, Dustin entscheidet pro Anfrage individuell und versendet manuell.
+
+### Festgelegte Entscheidungen
 
 | Thema | Entscheidung |
 |---|---|
-| Schutzmechanismus | Clientseitiges Passwort-Gate mit echter AES-Verschlüsselung |
-| Umfang | Startseite + Portfolio + Erfahrungs-Seite |
-| Positionen | Alle 10 Karrierestationen behalten, Wording Richtung Leadership umformulieren |
-| Öffentlich | Startseite inkl. der aktuellen Information-Security-Officer-Rolle |
-| Geschützt | `/portfolio` und `/experience` vollständig hinter dem Gate |
-| Arbeitszeugnisse | Nicht gehostet — nur händischer Versand nach Anfrage |
+| Schutzmechanismus | **Kein Passwort-Gate.** Detail-Material liegt nicht auf der Seite — Anfrage per E-Mail. |
+| Umfang | Startseite recruiter-tauglich, `/portfolio` und `/experience` als Teaser-Seiten |
+| Positionen | Alle 10 Karrierestationen behalten, Wording Richtung CISO/Leadership umformulieren |
+| Öffentlich | Startseite inkl. aktueller Information-Security-Officer-Rolle, Skills, Zertifikate, Blog/Presse |
+| Auf Anfrage | Detail-Berufserfahrung, Projekte, Ausbildung, Arbeitszeugnisse — manueller Versand nach Sichtung |
+| Anfrage-Weg | `mailto:`-Formular — öffnet das Mailprogramm des Besuchers, keine Drittpartei |
 | Git-Historie | Nur aktueller Stand bereinigt; alte Commit-Links bleiben (akzeptiert) |
 
 ---
@@ -32,174 +35,170 @@ herausgegeben werden.
 ```
 ┌─ ÖFFENTLICH ──────────────────────────────────────────────┐
 │  /  (Startseite)                                          │
-│  Hero · Skills · Blog/Presse · Zertifikate · Kontakt      │
-│  → Positionierung als Information Security Leader         │
-│  → keine Telefonnummer, keine privaten Dokumente          │
+│    Hero · Skills · Blog/Presse · Zertifikate · Anfrage    │
+│  /portfolio  → Teaser + „Details auf Anfrage"             │
+│  /experience → Teaser + „Details auf Anfrage"             │
+│  → CISO-Positionierung, keine Telefonnummer, keine PDFs   │
 └───────────────────────────────────────────────────────────┘
-            │  Passwort erforderlich
+            │  Recruiter sendet E-Mail-Anfrage
             ▼
-┌─ GESCHÜTZT (AES-GCM-verschlüsselt) ───────────────────────┐
-│  /portfolio   → Projekte, Detailbeschreibungen            │
-│  /experience  → 10 Karrierestationen im Detail, Ausbildung│
-└───────────────────────────────────────────────────────────┘
-            │  Anfrage + Einverständnis
-            ▼
-┌─ NUR HÄNDISCH (nirgends gehostet) ────────────────────────┐
-│  Arbeitszeugnis-PDFs → manueller E-Mail-Versand           │
+┌─ MANUELL (nicht auf der Seite) ───────────────────────────┐
+│  Dustin sichtet die Anfrage und entscheidet pro Fall:     │
+│   – Detail-Berufserfahrung & Projekte                     │
+│   – Ausbildung                                            │
+│   – Arbeitszeugnis-PDFs                                   │
+│  Versand per E-Mail nach Einverständnis.                  │
 └───────────────────────────────────────────────────────────┘
 ```
 
-**Begründung:** Ein vollständig gesperrter Auftritt wird von Recruitern kaum angefragt. Die
-öffentliche Startseite weckt Interesse; Details liegen hinter dem Gate; die sensibelsten Dokumente
-(Arbeitszeugnisse) verlassen nie die Kontrolle des Eigentümers.
+**Begründung:** Was nicht auf der Seite liegt, kann nicht ohne Einverständnis abfließen. Das
+erfüllt die Anforderung „niemand erhält Informationen ohne mein Einverständnis" tatsächlich —
+ohne die strukturellen Kompromisse eines clientseitigen Passwort-Gates (öffentlicher Chiffre-Blob,
+Brute-Force-Risiko, gemeinsames Passwort, keine pro-Person-Sperre).
 
 ---
 
-## 3. Technische Architektur des Gates
+## 3. Anfrage-Mechanismus
 
-### 3.1 Verschlüsselung
+### 3.1 Funktionsweise
 
-- **Verfahren:** AES-256-GCM, Schlüsselableitung via PBKDF2-SHA-256.
-- **Parameter:** 600.000 Iterationen, 16-Byte Zufalls-Salt, 12-Byte Zufalls-IV.
-- **Bibliothek:** keine — ausschliesslich die native `crypto.subtle` (Web Crypto API).
-- **Integrität:** Das GCM-Auth-Tag sorgt dafür, dass ein falsches Passwort die Entschlüsselung
-  scheitern lässt (Exception) — es wird niemals Teil-Klartext oder „Müll" gerendert.
+Ein `RequestAccess`-Formular auf der Startseite und auf den Teaser-Seiten erfasst:
 
-### 3.2 Datenfluss
+- **Name** des Anfragenden
+- **E-Mail** des Anfragenden
+- **Unternehmen / Rolle** (optional)
+- **Was gewünscht wird** (Multi-Select oder Freitext): Berufserfahrung-Detail, Projekt-Details,
+  Ausbildung, Arbeitszeugnisse
+- **Nachricht / Kontext**
 
-1. Besucher öffnet `/portfolio` oder `/experience`.
-2. `AccessGate` prüft den Context: entsperrt? → Inhalt rendern. Sonst → Passwort-Eingabe.
-3. Passwort absenden → verschlüsselten Blob laden → `crypto.subtle` leitet Schlüssel ab und
-   entschlüsselt.
-4. Erfolg → entschlüsselte Daten in React-Context (optional `sessionStorage` für die Sitzung) →
-   Seiten rendern. Fehler → Fehlermeldung, kein Inhalt.
+Beim Absenden wird ein `mailto:`-Link konstruiert: `mailto:<dustin>?subject=…&body=<vorausgefüllt>`.
+Das Mailprogramm des Besuchers öffnet sich mit vorbereiteter Mail; der Versand erfolgt aus seinem
+Konto. Dustin erhält die Anfrage, sichtet und antwortet manuell.
 
-### 3.3 Neue / geänderte Dateien
+### 3.2 Vorteile dieses Ansatzes
 
-| Datei | Zweck |
+- **Echte Kontrolle:** Dustin entscheidet pro Anfrage und versendet nur, was er versenden möchte.
+- **Keine Drittpartei:** Kein Form-Dienst, kein Tracking, keine Datenverarbeitung außerhalb.
+- **Kein Geheimnis im Code:** Keine Passwörter, Keys oder Chiffrate, die kompromittiert werden könnten.
+- **Null Einrichtung:** Funktioniert sofort — kein Account, kein Key, kein Deploy-Zyklus für Rotation.
+
+### 3.3 Trade-off
+
+Das `mailto:`-Schema legt die Ziel-E-Mail-Adresse im HTML offen. Das ist akzeptabel, **wenn die
+Adresse dafür gedacht ist**. Empfehlung: dedizierte Adresse für eingehende Recruiter-Anfragen,
+z. B. `kontakt@idustbin.com` oder `careers@idustbin.com` (im Spec-Review vom Nutzer zu bestätigen).
+Spam-Filter / Aliase auf eigener Domain lassen sich jederzeit rotieren, ohne den Code zu ändern.
+
+### 3.4 Geänderte Dateien
+
+| Datei | Änderung |
 |---|---|
-| `scripts/encrypt-content.mjs` | Node-Skript: verschlüsselt Klartext-JSON mit dem gewählten Passwort |
-| `content/gated-source.json` | **Klartext** der geschützten Inhalte — **`.gitignore`d, nie committet** |
-| `public/gated-content.enc.json` | **Chiffre-Blob** `{v, salt, iv, iterations, ciphertext}` (base64), committet |
-| `src/lib/crypto.ts` | `deriveKey()`, `decryptContent()` — Web-Crypto-Wrapper |
-| `src/context/GatedContentContext.tsx` | hält Entsperr-Status + entschlüsselte Daten |
-| `src/components/AccessGate.tsx` | Passwort-Bildschirm im bestehenden Terminal-/Mono-Stil |
-| `src/components/RequestAccess.tsx` | Anfrage-Formular für Arbeitszeugnisse |
-| `src/pages/Portfolio.tsx` | refaktoriert: Daten aus Context statt hartcodiert |
-| `src/pages/Experience.tsx` | refaktoriert: Daten aus Context; PDF-Bereich entfernt |
-| `src/App.tsx` | Route `/experience` ergänzen; `/portfolio` + `/experience` in `AccessGate` hüllen |
-| `.gitignore` | `content/gated-source.json` ergänzen |
+| `src/components/RequestAccess.tsx` | **neu** — Anfrage-Formular, baut `mailto:`-Link mit Pre-Fill |
+| `src/pages/Portfolio.tsx` | Detail-Arrays (`projects`, `education`) entfernt → Teaser + `RequestAccess` |
+| `src/pages/Experience.tsx` | Detail-Array entfernt, `workReferences`-PDF-Bereich entfernt → Teaser + `RequestAccess` |
+| `src/App.tsx` | Route `/experience` ergänzen; Routen bleiben öffentlich |
+| `src/components/ContactSection.tsx` | E-Mail/Map durch `RequestAccess`-Formular ersetzen |
+| `src/components/HeroSection.tsx` | Toter Anker `#experience` → Route `/experience` |
 
-**Wichtig:** Die geschützten Strukturdaten (Stationen, Projekte, Ausbildung) sind aktuell als
-Klartext-Arrays in `Portfolio.tsx` / `Experience.tsx` hartcodiert. Würden sie so bleiben, stünden
-sie unverschlüsselt im JS-Bundle. Daher werden sie nach `content/gated-source.json` ausgelagert,
-verschlüsselt und nur als Chiffre ausgeliefert. Die `.tsx`-Dateien werden zu reinen Render-Komponenten.
+Kein neuer Crypto-Code, kein Encrypt-Skript, kein Gate-Wrapper, kein Context für entschlüsselte Daten.
 
 ---
 
-## 4. Arbeitszeugnisse & Kontakt
+## 4. Inhaltliche Überarbeitung (Wording)
 
-- Der bisherige `workReferences`-PDF-Bereich in `Experience.tsx` wird **vollständig entfernt** und
-  durch einen Hinweis **„Arbeitszeugnisse auf Anfrage"** ersetzt.
-- Ein **Anfrage-Formular** (`RequestAccess.tsx`) erfasst Name + E-Mail des Recruiters. Dustin sichtet
-  die Anfrage und versendet die Zeugnisse **manuell** — damit erhält niemand sie ohne Einverständnis.
-- **Übermittlung des Formulars (zur Bestätigung im Spec-Review):**
-  - *Empfohlen:* Form-Dienst (z. B. Web3Forms) — keine E-Mail-Adresse/Telefonnummer im Quelltext
-    oder auf der Seite sichtbar. **Erfordert eine einmalige Einrichtung durch Dustin** (kostenloser
-    Account, Access-Key). Der Access-Key darf öffentlich im Code stehen (so vom Dienst vorgesehen).
-  - *Alternative ohne Einrichtung:* `mailto:`-Formular — öffnet das Mailprogramm des Besuchers und
-    legt damit eine E-Mail-Adresse offen.
-- Die bestehende `ContactSection` der Startseite wird auf dasselbe Anfrage-Prinzip umgestellt
-  (kein offen sichtbares E-Mail/Telefon).
+### 4.1 Leitprinzip — wahrheitsgemässe Umformulierung
 
----
+Rollentitel und Zeiträume bleiben **exakt unverändert** (Verifizierbarkeit). Umformuliert werden
+Tätigkeits-Highlights mit Betonung von **Verantwortung, Umfang, Geschäftswirkung, Governance und
+Security-Bezug**. **Keine erfundenen Titel oder Verantwortlichkeiten.**
 
-## 5. Inhaltliche Überarbeitung (Wording)
-
-### 5.1 Leitprinzip — wahrheitsgemässe Umformulierung
-
-Rollentitel und Zeiträume bleiben **exakt unverändert** (Verifizierbarkeit). Umformuliert werden die
-Tätigkeits-Highlights: Betonung von **Verantwortung, Umfang, Geschäftswirkung, Governance und
-Security-Bezug**. **Keine erfundenen Titel oder Verantwortlichkeiten** — überzogene Angaben werden
-von Recruitern auf Exec-Ebene erkannt und schaden mehr, als sie nützen.
-
-### 5.2 Konkrete Vorschläge (Auszug — Rest wird in der Umsetzung pro Datei zur Freigabe vorgelegt)
+### 4.2 Konkrete Vorschläge (Auszug — Rest wird vor Code-Einbau zur Freigabe vorgelegt)
 
 **`index.html` — Title & Meta**
-- Title: `Dustin Keinert – Information Security Officer (CISM) | Security & IT-Governance Leadership`
+- Title: `Dustin Keinert – Information Security Officer (CISM) | CISO-Track`
 - Description: `Information Security Officer mit CISM-Zertifizierung und 10+ Jahren Erfahrung in
-  regulierten Branchen. Aufbau und Betrieb von ISMS nach ISO 27001, Security-Governance,
-  Risikomanagement und Reporting auf Geschäftsleitungsebene.`
+  regulierten Branchen — Healthcare, Finance, Telecom, Energiesektor. Aufbau und Betrieb von ISMS
+  nach ISO 27001, Security-Governance, Risikomanagement, Reporting auf Geschäftsleitungsebene.`
 - Keywords Richtung: `Information Security Officer, CISO, CISM, ISMS, ISO 27001, Security Governance,
-  Risikomanagement, IT-Security Leadership`
+  Risikomanagement, IT-Security Leadership, Schweiz`
 
 **Hero (`HeroSection.tsx`)**
-- Untertitel: `Information Security Officer (CISM) — Security & IT-Governance Leadership`
+- Untertitel: `Information Security Officer (CISM) — auf dem Weg zum CISO`
 - Absatz: `Information Security Officer mit CISM-Zertifizierung und über 10 Jahren Erfahrung in
   regulierten Branchen — Healthcare, Finance, Telecom und Energiesektor. Schwerpunkte: Aufbau und
   Betrieb von ISMS nach ISO 27001, Security-Governance, Risikomanagement und Reporting auf
   Geschäftsleitungsebene.`
-- CTA „Erfahrung ansehen": Ziel von totem Anker `#experience` → Route `/experience` (Gate).
+- CTA „Erfahrung ansehen" → Route `/experience` (Teaser-Seite mit Anfrage-Möglichkeit).
 - Tech-Pills Richtung Governance: `ISMS · ISO 27001 · CISM · Risk Management · Security Governance ·
   Cloud Security`.
 
-**Berufserfahrung — Beispiel-Umformulierungen**
+**Teaser-Texte für gesperrte Seiten**
+- `/experience`: `10+ Jahre Information Security & Engineering in Healthcare, Finance, Telecom und
+  Energiesektor. Detaillierte Stationen, Verantwortungen und Ergebnisse auf Anfrage.`
+- `/portfolio`: `Ausgewählte Projekte aus ISMS-Aufbau, ISO-27001-Zertifizierung und Security-
+  Governance. Projekt-Details und Referenzen auf Anfrage.`
+
+**Berufserfahrung — Beispiel-Umformulierungen** (für die Detail-Texte, die Dustin manuell verschickt)
 - AEW (ISO-Rolle): `Aufbau & Betrieb des ISMS nach ISO 27001` →
   `Verantwortung für Aufbau und Betrieb des unternehmensweiten ISMS nach ISO 27001`.
 - RedTecLab (DevOps Engineer): `CI/CD Pipelines mit Jenkins & Bitbucket` →
   `Etablierung standardisierter, sicherer CI/CD- und Release-Prozesse`.
 
-Die **vollständigen Texte** für alle Abschnitte und alle 10 Stationen werden während der Umsetzung
-als zusammenhängender Entwurf vorgelegt und **vor dem Schreiben in den Code freigegeben**.
+Vollständige Texte für alle Abschnitte und alle 10 Stationen werden als zusammenhängender Entwurf
+vorgelegt und **vor dem Schreiben in den Code freigegeben**.
 
 ---
 
-## 6. Bereinigung öffentlicher Daten
+## 5. Bereinigung öffentlicher Daten
 
-- `index.html` JSON-LD: `telephone` entfernen, `email` entfernen/ersetzen. `addressLocality`
-  (Aarau) und `addressCountry` bleiben für lokale SEO (vom Nutzer im Spec-Review bestätigen).
+- `index.html` JSON-LD: `telephone` entfernen, `email` durch dedizierte Anfrage-Adresse ersetzen.
+  `addressLocality` (Aarau) und `addressCountry` bleiben für lokale SEO (im Review zu bestätigen).
 - Arbeitszeugnis-PDFs aus dem aktuellen Repo-Stand entfernen (`!archiv/degree/*.pdf`).
 - `spam@idustbin.com` aus `ContactSection.tsx` und `index.html` entfernen.
-- *Optional, niedrige Priorität:* `TerminalAnimation.tsx` enthält Pfade mit Benutzernamen und einen
-  internen LAN-Hostnamen (`idustbin@local.horst.lan`) — kann anonymisiert werden.
-- *Hinweis:* Alte Git-Commits behalten die PDFs (per Entscheidung akzeptiert). Eine spätere
-  Historie-Bereinigung (`git filter-repo` + Force-Push) bleibt als separater Schritt möglich.
+- *Optional:* `TerminalAnimation.tsx` enthält Pfade mit Benutzernamen und einen internen LAN-
+  Hostnamen (`idustbin@local.horst.lan`) — auf Wunsch anonymisieren.
+- *Hinweis:* Alte Git-Commits behalten die PDFs (per Entscheidung akzeptiert). Spätere Historie-
+  Bereinigung (`git filter-repo` + Force-Push) bleibt als separater Schritt möglich.
 
 ---
 
-## 7. Was unverändert bleibt
+## 6. Was unverändert bleibt
 
 Layout, Farbschema, Komponenten-Struktur, Animationen, Tailwind-Theme, Terminal-/Mono-Ästhetik.
-`AccessGate` und `RequestAccess` werden im bestehenden Stil gehalten — keine neuen Designmuster.
+`RequestAccess` und die Teaser-Seiten werden im bestehenden Stil gehalten — keine neuen Designmuster.
 
 ---
 
-## 8. Ehrliche Sicherheits-Grenzen (unvermeidbar bei GitHub Pages)
+## 7. Was diese Lösung leistet — und was nicht
 
-1. Der verschlüsselte Blob ist öffentlich abrufbar → **Offline-Brute-Force ist möglich**. Das
-   Passwort **muss** eine starke Passphrase sein (Empfehlung: 5+ zufällige Wörter bzw. 20+ Zeichen).
-2. Ein **gemeinsames Passwort** für alle Recruiter — keine Sperrung einzelner Personen. Wer es hat,
-   kann es weitergeben. Passwortwechsel = neu verschlüsseln + neu deployen.
-3. 600.000 PBKDF2-Iterationen verlangsamen Angriffe, machen sie aber nicht unmöglich. Dies ist
-   „echte Verschlüsselung + Abschreckung", nicht „unknackbar".
-4. **Echte Vertraulichkeit** entsteht nur dort, wo Inhalte gar nicht gehostet werden — deshalb der
-   händische Versand der Arbeitszeugnisse.
-5. Alte Commit-URLs (`raw.githubusercontent.com/...`) bleiben erreichbar, bis die Git-Historie
-   bereinigt wird.
+**Leistet:**
+- „Niemand erhält Informationen ohne mein Einverständnis" — wird **tatsächlich** erfüllt: Details
+  sind nicht auf der Seite, der Versand ist immer eine manuelle Entscheidung von Dustin.
+- Recruiter sehen das CISO-Positioning, Skills, Zertifikate und Pressepräsenz und können qualifiziert
+  anfragen.
+- Keine Crypto-Komplexität, kein Brute-Force-Risiko, keine Schlüsselverwaltung.
+
+**Leistet nicht (bewusst):**
+- Schutz der Inhalte, die **bewusst öffentlich bleiben** (Skills, Zertifikate, Blog, Presse, aktuelle
+  Rolle) — dies ist Recruiter-Marketing und soll öffentlich sein.
+- Schutz der **alten Git-Commits** mit den PDFs (`raw.githubusercontent.com/...@<commit>/degree/...`)
+  — diese bleiben erreichbar, bis die Git-Historie bereinigt wird.
 
 ---
 
-## 9. Vom Nutzer benötigte Aktionen
+## 8. Vom Nutzer benötigte Aktionen
 
-- [ ] Starke Passphrase festlegen und `scripts/encrypt-content.mjs` damit ausführen.
-- [ ] Kontaktweg bestätigen (Form-Dienst vs. `mailto:`) — bei Form-Dienst Account + Access-Key.
+- [ ] Anfrage-E-Mail-Adresse bestätigen (Vorschlag: `kontakt@idustbin.com`).
 - [ ] Bestätigen, ob `addressLocality`/`addressCountry` im JSON-LD bleiben dürfen.
+- [ ] Entscheiden, ob `TerminalAnimation.tsx` anonymisiert werden soll.
 - [ ] Finale Wording-Texte vor dem Code-Einbau freigeben.
+- *Empfohlen separat:* SPF/DKIM/DMARC für `idustbin.com` prüfen — wer als CISO eine eigene Domain
+  in der Signatur trägt, sollte sie sauber konfiguriert haben.
 
 ---
 
-## 10. Offene Punkte für das Spec-Review
+## 9. Offene Punkte für das Spec-Review
 
-1. Kontaktweg: Form-Dienst (empfohlen) oder `mailto:`?
+1. Anfrage-E-Mail-Adresse: `kontakt@idustbin.com`, `careers@idustbin.com`, oder andere?
 2. Ortsangabe im JSON-LD behalten oder entfernen?
 3. `TerminalAnimation`-Anonymisierung gewünscht (ja/nein)?
