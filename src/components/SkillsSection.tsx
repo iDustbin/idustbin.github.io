@@ -59,7 +59,7 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group p-6 bg-card border border-border rounded-lg hover:border-primary/30 transition-all duration-300 hover:glow-green"
+              className="group p-6 bg-card border border-border rounded-lg hover:border-primary/30 transition-colors duration-300 hover:glow-green"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-2xl">{category.icon}</span>
